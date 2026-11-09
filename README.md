@@ -1,0 +1,42 @@
+# Joe McHugh Coaching
+
+Current static Home and About pages, replacing the earlier wireframe.
+
+- Home: `index.html`
+- About: `about/index.html`
+- Home styles, scripts and shared assets: `homepage/`
+- About-specific assets and styles: `about/`
+
+## Preview
+
+Run `python3 -m http.server 8000 --bind 127.0.0.1` from this folder and open
+http://127.0.0.1:8000/. The pages also work as ordinary static files.
+
+## Editing
+
+Edit the HTML and the readable CSS source files. After CSS edits, run `npm ci`
+once, then `npm run build:css` to regenerate both `site.min.css` files. Node is
+only needed for development; hosting needs no build command. Run `npm run check`
+to check links, responsive assets and draft-state invariants.
+
+## Draft state
+
+The design, palette and approved copy are retained. Header One-to-one and Team
+labels deliberately remain unlinked until their individual pages are ready.
+Booking/form integration, approved testimonials, Friday Corner posts/link and
+the About farm photograph remain unfinished. No tracking is included.
+
+Both pages retain noindex while unfinished. No production domain, canonical URL,
+social image or privacy policy has been invented. Confirm those at launch, then
+add the final sitemap/robots policy and remove noindex. Noindex is not privacy
+or access control. The repository and any configured deployment retain their
+existing access settings.
+
+Hosting can serve the repository root directly. GitHub Pages, if chosen, can
+publish `main` from `/ (root)` without a Node build. Existing external hosting
+can likewise use the root and the committed CSS output.
+
+Original photographs, unused exports, local audit screenshots, internal notes
+and design archives are not included. The old wireframe is recoverable from
+Git history. Automated accessibility checks passed at desktop/mobile widths;
+manual photo-contrast, zoom and assistive-technology review remain launch checks.

@@ -1,0 +1,11 @@
+{
+  "name": "joe-mchugh-site",
+  "private": true,
+  "scripts": {
+    "build:css": "node scripts/build-css.cjs",
+    "check": "python3 scripts/validate-site.py"
+  },
+  "devDependencies": {
+    "clean-css": "5.3.3"
+  }
+}

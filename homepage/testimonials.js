@@ -1,0 +1,5 @@
+(() => {
+
+const slides=[['One-to-one coaching','Space for a client’s own words about working with Joe, what stood out and what they found valuable.','[Role · organisation]'],['Team coaching','Space for a participant’s own words about the experience of working with Joe alongside their colleagues.','[Team participant · organisation]'],['Working with Joe','Space for a client or collaborator’s own words about Joe’s approach and their experience of working together.','[Role · context of work]']];let current=0;function show(step){current=(current+step+slides.length)%slides.length;document.getElementById('testimonial-kind').textContent=slides[current][0];document.getElementById('testimonial-quote').textContent=slides[current][1];document.getElementById('testimonial-role').textContent=slides[current][2];document.getElementById('testimonial-count').textContent=`${current+1} of ${slides.length}`;}document.getElementById('testimonial-prev').addEventListener('click',()=>show(-1));document.getElementById('testimonial-next').addEventListener('click',()=>show(1));
+
+})();
