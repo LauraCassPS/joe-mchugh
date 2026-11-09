@@ -25,7 +25,7 @@
 @media(max-width:700px){
  
  .team-section{--coaching-display:clamp(46px,10.3vw,70px);padding:20px 0}
- .team-visual{height:230px}.team-visual img{object-position:42% center}.team-visual :is(h1,h2){align-items:flex-end;padding:16px;font-size:var(--service-title);text-wrap:balance}
+ .team-visual{height:230px}.team-visual img{object-position:42% center}.team-visual :is(h1,h2){align-items:center;padding:16px;font-size:var(--service-title);text-wrap:balance}
  .team-introduction,.team-body{grid-template-columns:minmax(0,1fr);gap:24px}
  .team-introduction{padding:26px 0}.team-introduction :is(h2,h3){font-size:32px}
  .team-introduction :is(h2,h3) br{display:none}.team-introduction>p{padding-top:0}

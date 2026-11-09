@@ -263,11 +263,11 @@ main { padding-top: 65px; }
   .opening-copy h2 { font-size: 36px; }
   .opening-ending { padding: 22px 20px; }
   .story-section { margin-top: 60px; padding-top: 30px; }
-  .story-section .composition { grid-template-columns: .12fr .88fr; }
-  .story-section h2 { font-size: 12.5cqw; padding-top: 4px; background: linear-gradient(to right, var(--blue) 12%, var(--paper) 12%); background-clip: text; -webkit-background-clip: text; }
+  .story-section .composition { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .story-section h2 { grid-column: 1; grid-row: 1; font-size: 12.5cqw; padding-top: 0; background: none; color: var(--blue); }
   .story-section h2 > span { font-size: .58em; margin-bottom: 12px; }
   .story-section h2 > em:last-child { margin-left: 4%; }
-  .story-section .photo { aspect-ratio: 1.45; }
+  .story-section .photo { grid-column: 1; grid-row: 2; aspect-ratio: 1.45; }
   .story-section .body-copy { columns: 1; }
   .story-section .story-reflection { font-size: 25px; }
   .story-section .ending p { font-size: 28px; white-space: normal; text-wrap: balance; }
