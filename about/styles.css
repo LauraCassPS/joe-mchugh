@@ -227,6 +227,9 @@ main { padding-top: 65px; }
   .footer-book svg { transition: transform 160ms ease-out; }
   .footer-book:is(:hover, :focus-visible) svg { transform: translateX(4px); }
 }
+@media (min-width: 1001px) {
+  .personal-grid .health-heading { font-size: min(32px, 2.65cqw); white-space: nowrap; }
+}
 /* Tablet adjustments preserve the same section compositions. */
 @media (max-width: 1000px) {
   .site-shell { padding: 22px 35px 38px; }
