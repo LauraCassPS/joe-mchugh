@@ -23,8 +23,8 @@ to check links, responsive assets and draft-state invariants.
 
 The design, palette and approved copy are retained. Header One-to-one and Team
 labels deliberately remain unlinked until their individual pages are ready.
-Booking/form integration, approved testimonials, Friday Corner posts/link and
-the About farm photograph remain unfinished. No tracking is included.
+Booking/form integration, approved testimonials and Friday Corner posts/link
+remain unfinished. No tracking is included.
 
 Both pages retain noindex while unfinished. No production domain, canonical URL,
 social image or privacy policy has been invented. Confirm those at launch, then
