@@ -12,6 +12,18 @@
 .coaching-photo::after{content:"";position:absolute;inset:0;background:var(--paper);opacity:.6;pointer-events:none}
 .coaching-visual h2{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:20px;text-align:center;font-size:min(var(--service-title),11cqw);line-height:.98}
 .coaching-visual h2 span{display:block;color:var(--ink)}
+/* Desktop image frames follow the adjacent copy, including its final CTA. */
+@media(min-width:761px){
+ .persp-photo{align-self:stretch;height:auto;min-height:0}
+ .persp-photo img{position:absolute;inset:0 0 0 24px;width:calc(100% - 24px)}
+}
+@media(min-width:761px) and (max-width:1000px){
+ .persp-photo img{left:18px;width:calc(100% - 18px)}
+}
+@media(min-width:901px){
+ .coaching-visual{align-self:stretch}
+ .coaching-photo{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+}
 /* Compact personal profile, with a restrained photograph and headline. */
 .journey-section{padding:28px 0}
 .journey-masthead{margin-bottom:22px}

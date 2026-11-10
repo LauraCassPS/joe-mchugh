@@ -549,6 +549,8 @@ a[aria-disabled=true] {
 
 /* Selected Section 6: centred newspaper opening and divided article. */
 .working-section { padding:46px 0 38px; border-bottom:4px double var(--ink); scroll-margin-top:24px; }
+/* The heading's double rule is the shared boundary after team coaching. */
+.team-section:has(+ .working-section) { border-bottom:0; padding-bottom:0; }
 .working-heading h2 { font:400 clamp(28px,2.8vw,40px)/1.2 var(--display); text-align:center; margin:0; padding:16px 0; border-top:4px double var(--ink); border-bottom:1px solid var(--rule); letter-spacing:-.02em; }
 .working-heading h3 { max-width:20ch; margin:26px auto 22px; font:700 clamp(44px,5.2vw,74px)/1.04 var(--display); letter-spacing:-.035em; text-align:center; text-wrap:balance; }
 .working-opening { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:68px; align-items:center; text-align:left; padding:26px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
