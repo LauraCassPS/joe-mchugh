@@ -6,6 +6,7 @@ const root = path.resolve(__dirname, '..');
 for (const [folder, files] of Object.entries({
   homepage: ['styles.css', 'team-coaching.css', 'testimonials.css', 'photos.css'],
   about: ['styles.css'],
+  'one-to-one': ['styles.css'],
 })) {
   const css = files.map(file => fs.readFileSync(path.join(root, folder, file), 'utf8')).join('\n');
   const result = new CleanCSS({ level: 1, rebase: false }).minify(css);

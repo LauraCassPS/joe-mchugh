@@ -1,0 +1,80 @@
+[
+  {
+    "source": "photography/One to One Photos /accredited-leadership-coach-Ireland.png",
+    "originalBytes": 3280646,
+    "variants": [
+      [
+        480,
+        360,
+        53148
+      ],
+      [
+        800,
+        600,
+        126428
+      ],
+      [
+        1200,
+        899,
+        209890
+      ],
+      [
+        1449,
+        1086,
+        259640
+      ]
+    ]
+  },
+  {
+    "source": "photography/One to One Photos /business-leadership-coaching.png",
+    "originalBytes": 2553831,
+    "variants": [
+      [
+        480,
+        367,
+        25600
+      ],
+      [
+        800,
+        611,
+        57886
+      ],
+      [
+        1200,
+        917,
+        103898
+      ],
+      [
+        1435,
+        1096,
+        132008
+      ]
+    ]
+  },
+  {
+    "source": "photography/One to One Photos /executive-coach-senior-leaders.png",
+    "originalBytes": 3267594,
+    "variants": [
+      [
+        480,
+        348,
+        41222
+      ],
+      [
+        800,
+        580,
+        111210
+      ],
+      [
+        1200,
+        870,
+        205466
+      ],
+      [
+        1473,
+        1068,
+        271202
+      ]
+    ]
+  }
+]
