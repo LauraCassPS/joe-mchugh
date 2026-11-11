@@ -12,8 +12,8 @@
   --paper: #f3eee2; --sand: #e6e3d8; --panel: #e2e2df;
   --ink: #30312c; --blue: #345961; --green: #62694b; --rule: #8e9183;
   --display: Old, Georgia, serif; --body: Libre, Georgia, serif; --label: Source, Arial, sans-serif;
-  --section-space: clamp(52px, 5vw, 72px);
-  --reading-size: 1rem; --reading-leading: 1.8; --paragraph-space: 24px;
+  --section-space: 44px;
+  --reading-size: 1rem; --reading-leading: 1.8; --paragraph-space: 22px;
   --paper-texture: url('../homepage/assets/brand-board-paper-web.jpg');
   --painted-frame: url('../homepage/assets/proverb-painted-panel-web-optimized.webp');
   color: var(--ink); background: var(--sand); font-family: var(--body);
@@ -81,7 +81,7 @@ svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width:
 .intro-close em { font: inherit; font-weight: 700; color: var(--blue); }
 
 /* Exploration — three reading columns and a quiet tinted conclusion. */
-.exploration { margin-top: 32px; border-top: 4px double var(--ink); padding: 46px 0; }
+.exploration { margin-top: 32px; border-top: 4px double var(--ink); padding: 44px 0; }
 .explore-title { margin-bottom: 38px; }
 .explore-title h2 { font: 400 clamp(2.375rem, 4vw, 3.5rem)/1.15 var(--display); letter-spacing: -.02em; }
 .explore-title br { display: none; }
@@ -98,7 +98,7 @@ svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width:
 .meaning br { display: none; }
 
 /* Perspective — approved A, using the About page's container-relative scale. */
-.perspective { padding: 40px 0 52px; border-top: 4px double var(--ink); }
+.perspective { padding: 44px 0; border-top: 4px double var(--ink); }
 .perspective-composition { display: grid; grid-template-columns: 44% 56%; position: relative; container-type: inline-size; }
 .perspective-composition h2 { grid-column: 1 / -1; grid-row: 1; padding-top: 24px; z-index: 1; color: var(--blue); }
 .perspective-composition h2 > span { color: var(--ink); display: block; width: 44%; padding-right: 24px; font: 400 clamp(1.625rem, 2.8vw, 2.5rem)/1.3 var(--display); letter-spacing: -.015em; text-wrap: balance; }
@@ -120,10 +120,10 @@ svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width:
 .proverb-translation::before { width: 70px; margin: 13px auto 10px; }
 
 /* Approach — approved C with the centred closing box. */
-.approach { display: grid; grid-template-columns: 28% minmax(0, 1fr); gap: 0 32px; border-top: 4px double var(--ink); padding: 34px 0 48px; }
+.approach { display: grid; grid-template-columns: 28% minmax(0, 1fr); gap: 0 32px; border-top: 4px double var(--ink); padding: 44px 0; }
 .approach-heading h2 { font: 400 3.25rem/1.16 var(--display); letter-spacing: -.015em; max-width: 12ch; text-wrap: balance; color: var(--blue); }
 .approach-copy { border-left: 1px solid var(--ink); padding-left: 64px; }
-.approach-copy h3 { font: 400 2rem/1.3 var(--display); letter-spacing: 0; margin-bottom: 20px; }
+.approach-copy h3 { font: 400 1.75rem/1.3 var(--display); letter-spacing: 0; margin-bottom: 20px; }
 .approach-copy p { font: 400 var(--reading-size)/var(--reading-leading) var(--body); max-width: 55ch; }
 .approach-copy em { font: inherit; font-style: italic; color: var(--blue); }
 .approach-role p { max-width: 55ch; }
@@ -133,7 +133,7 @@ svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width:
 .approach-choice em { font: inherit; }
 
 /* Personal — left photograph, crossing title and two reading columns. */
-.personal { padding: 36px 0 44px; border-top: 4px double var(--ink); }
+.personal { padding: 44px 0; border-top: 4px double var(--ink); }
 .personal-composition { display: grid; grid-template-columns: 49% 51%; grid-template-rows: 1fr auto; position: relative; container-type: inline-size; }
 .personal-photo { grid-column: 1; grid-row: 1 / 3; width: 100%; aspect-ratio: 1.38; align-self: stretch; }
 .personal-composition h2 { grid-column: 1 / -1; grid-row: 1 / 3; z-index: 1; align-self: start; color: var(--blue); }
@@ -152,7 +152,7 @@ svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width:
 .parting > div p::before { width: 130px; border-top-width: 2px; margin: 20px auto 16px; }
 
 /* Native FAQ disclosures: no script or hidden duplicate content. */
-.faq { display: grid; grid-template-columns: 1fr 2.1fr; gap: 54px; align-items: start; padding: var(--section-space) 0; }
+.faq { display: grid; grid-template-columns: 1fr 2.1fr; gap: 54px; align-items: start; padding: 24px 0 var(--section-space); }
 .faq-header { position: sticky; top: 30px; }
 .faq-header h2 { font: 400 2.375rem/1.15 var(--display); letter-spacing: -.02em; max-width: 12ch; color: var(--blue); }
 .faq-header em { font-style: normal; }
@@ -171,8 +171,8 @@ details[open] .toggle::after { transform: none; }
 .answer .draft { font: 1rem/1.5 var(--label); padding-top: 15px; color: var(--green); }
 
 /* Existing preview contact paths; launch dependencies are tracked in README. */
-.conversation { border-top: 4px double var(--ink); padding: 48px 0 44px; }
-.conversation h2 { font: 400 clamp(3rem, 5.2vw, 4.5rem)/1.1 var(--display); letter-spacing: -.025em; margin-bottom: 35px; color: var(--blue); }
+.conversation { border-top: 4px double var(--ink); padding: 44px 0; }
+.conversation h2 { font: 400 clamp(2.5rem, 4.3vw, 3.875rem)/1.1 var(--display); letter-spacing: -.025em; margin-bottom: 35px; color: var(--blue); }
 .conversation h2 br { display: none; }
 .conversation h2 em { font-style: italic; font-weight: 400; }
 .conversation-options { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
@@ -250,7 +250,7 @@ details[open] .toggle::after { transform: none; }
   .conversation h2 { font-size: 6.5vw; }
 }
 @media (max-width: 600px) {
-  :root { --section-space: 52px; }
+  :root { --section-space: 32px; }
   .sheet { padding: 14px 6% 22px; }
   .name { font-size: 3.0625rem; padding: 18px 0 20px; }
   .name span { font-size: 0.875rem; margin-top: 10px; }
@@ -269,7 +269,7 @@ details[open] .toggle::after { transform: none; }
   .intro-deck > div, .intro-deck > div + div { padding: 0; border: 0; }
   .intro-deck p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .intro-deck .intro-close { padding: 5px 0 0; text-align: left; font-size: 1.8125rem; }
-  .exploration { margin-top: 30px; padding: 30px 0 34px; }
+  .exploration { margin-top: 30px; padding: 32px 0; }
   .explore-title { margin-bottom: 27px; }
    .explore-title h2 { font-size: 2.375rem; }
   .explore-layout { grid-template-columns: 1fr; gap: 24px; }
@@ -278,7 +278,7 @@ details[open] .toggle::after { transform: none; }
   .explore-feature p, .explore-pair p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .meaning { margin-top: 12px; padding: 24px 6%; }
   .meaning p { font-size: 1.5625rem; }
-  .perspective { padding: 30px 0 36px; }
+  .perspective { padding: 32px 0; }
   .perspective-composition { grid-template-columns: 1fr; gap: 24px; }
   .perspective-composition h2 { grid-column: 1; grid-row: 1; padding: 0; }
   .perspective-composition h2 > span { width: auto; padding: 0; font-size: 1.75rem; text-wrap: initial; }
@@ -288,16 +288,16 @@ details[open] .toggle::after { transform: none; }
   .perspective-left { padding: 0; }
   .perspective-right { padding: 26px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
   .perspective-reading p { font-size: var(--reading-size); line-height: var(--reading-leading); }
-  .perspective-right p + p { margin-top: 24px; }
+  .perspective-right p + p { margin-top: var(--paragraph-space); }
   .coaching-proverb { padding: 19px 10px; margin-top: 24px; }
   .coaching-proverb p[lang] { font-size: 1.4375rem; }
-  .approach { display: block; padding: 26px 0 36px; }
+  .approach { display: block; padding: 32px 0; }
   .approach-heading h2 { font-size: 2.25rem; line-height: 1.2; max-width: none; }
   .approach-copy { margin-top: 28px; padding: 26px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
   .approach-copy h3 { font-size: 1.5625rem; margin-bottom: 16px; }
   .approach-copy p { font-size: var(--reading-size); }
   .approach-choice { font-size: 1.5625rem; margin-top: 28px; padding: 22px 18px; }
-  .personal { padding: 28px 0 34px; }
+  .personal { padding: 32px 0; }
   .personal-composition { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 24px; }
   .personal-composition h2 { grid-column: 1; grid-row: 1; }
   .personal-composition h2 > span { padding: 0; font-size: 1.75rem; }
@@ -317,7 +317,8 @@ details[open] .toggle::after { transform: none; }
   .faq summary { font-size: 1.375rem; padding-right: 34px; }
   .answer { padding-right: 0; }
   .faq-group + .faq-group { margin-top: 30px; }
-  .conversation { padding-top: 32px; }
+  .conversation { padding: 32px 0; }
+  .faq { padding-top: 32px; }
   .conversation h2 { font-size: 11vw; margin-bottom: 30px; }
   .conversation h2 br { display: block; }
   .conversation-options { grid-template-columns: 1fr; gap: 30px; }
