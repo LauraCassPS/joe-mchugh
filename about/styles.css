@@ -427,11 +427,11 @@ main { padding-top: 65px; }
 }
 
 /* Shared homepage painted sign, with selectable Irish and English copy. */
-.about-proverb { margin-top:36px; background:var(--blue); border:38px solid transparent; border-image:url('../homepage/assets/proverb-painted-panel-web-optimized.webp') 110 fill / 38px / 0 stretch; color:var(--paper); text-align:center; padding:20px 18px 22px; min-height:280px; display:flex; flex-direction:column; justify-content:center; }
-.about-proverb p[lang] { font:700 clamp(30px,4.2vw,64px)/1.14 var(--display); letter-spacing:-.025em; text-wrap:balance; margin:0; }
-.about-proverb .proverb-translation { font:400 clamp(19px,2.2vw,30px)/1.4 var(--display); margin:0; text-wrap:balance; }
+.about-proverb { margin-top:36px; background:var(--blue); border:38px solid transparent; border-image:url('../homepage/assets/proverb-painted-panel-web-optimized.webp') 110 fill / 38px / 0 stretch; color:var(--paper); text-align:center; padding:20px 4px 22px; min-height:230px; display:flex; flex-direction:column; justify-content:center; }
+.about-proverb p[lang] { font:700 min(38px,3.1cqw)/1.14 var(--display); letter-spacing:-.025em; text-wrap:balance; white-space:nowrap; margin:0; }
+.about-proverb .proverb-translation { font:400 clamp(20px,2.15cqw,28px)/1.4 var(--display); margin:0; text-wrap:balance; }
 .proverb-translation::before { content:''; display:block; width:130px; border-top:2px solid currentColor; opacity:.85; margin:20px auto 16px; }
-@media(max-width:760px) { .about-proverb { border-width:25px; border-image-width:25px; padding:32px 8px; } .about-proverb p[lang] { font-size:clamp(27px,6.6vw,48px); } }
+@media(max-width:760px) { .about-proverb { border-width:25px; border-image-width:25px; padding:24px 4px; min-height:0; } .about-proverb p[lang] { font-size:26px; white-space:normal; } .about-proverb .proverb-translation { font-size:20px; } }
 
 /* Approved career details in the closing biography. */
 .biography-photo > .career-context { grid-column:1/-1; grid-row:3; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; margin-top:12px; padding-top:28px; border-top:1px solid var(--rule); }
