@@ -13,7 +13,7 @@
   --ink: #30312c; --blue: #345961; --green: #62694b; --rule: #8e9183;
   --display: Old, Georgia, serif; --body: Libre, Georgia, serif; --label: Source, Arial, sans-serif;
   --section-space: clamp(52px, 5vw, 72px);
-  --reading-size: 1.25rem; --reading-leading: 1.7; --paragraph-space: 24px;
+  --reading-size: 1rem; --reading-leading: 1.8; --paragraph-space: 24px;
   --paper-texture: url('../homepage/assets/brand-board-paper-web.jpg');
   --painted-frame: url('../homepage/assets/proverb-painted-panel-web-optimized.webp');
   color: var(--ink); background: var(--sand); font-family: var(--body);
@@ -23,7 +23,7 @@
 html { scroll-padding-top: 28px; }
 body, h1, h2, h3, p, figure { margin: 0; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; letter-spacing: -.025em; }
-p { font-size: 1.125rem; line-height: 1.85; text-wrap: pretty; }
+p { font-size: var(--reading-size); line-height: var(--reading-leading); text-wrap: pretty; }
 p + p { margin-top: var(--paragraph-space); }
 em { font-weight: 400; }
 a { color: inherit; text-decoration: none; text-underline-offset: 5px; }
@@ -209,7 +209,6 @@ details[open] .toggle::after { transform: none; }
   .conversation-options > div + div { padding-left: 35px; }
 }
 @media (max-width: 1000px) {
-  :root { --reading-size: 1.125rem; }
   .explore-intro { margin-inline: 25px; }
   .approach-copy h3 { font-size: 1.6875rem; }
   .explore-feature, .explore-pair > div { padding-inline: 25px; }
@@ -221,20 +220,20 @@ details[open] .toggle::after { transform: none; }
   .hero-copy { padding-right: 48px; }
   .intro-deck > div { padding-right: 28px; }
   .intro-deck > div + div { padding-left: 32px; }
-  .intro-deck p { font-size: 1.125rem; }
+  .intro-deck p { font-size: var(--reading-size); }
   .explore-feature p, .explore-pair p { font-size: var(--reading-size); }
   .perspective-composition h2 > span { font-size: 2.8vw; }
   .perspective-composition h2 > em { margin-top: 65px; }
-  .perspective-reading p { font-size: 1.125rem; }
+  .perspective-reading p { font-size: var(--reading-size); }
   .perspective-left { padding-right: 25px; }
   .perspective-right { padding-left: 25px; }
   .approach { gap: 0 32px; }
   .approach-copy { padding-left: 32px; }
-  .approach-copy p { font-size: 1.125rem; }
+  .approach-copy p { font-size: var(--reading-size); }
   .approach-heading h2 { font-size: 2.625rem; }
   .personal-composition h2 > em { margin-top: 60px; }
   .personal-composition .standfirst { font-size: 1.5rem; line-height: 1.4; }
-  .personal-reading p { font-size: 1.125rem; }
+  .personal-reading p { font-size: var(--reading-size); }
   .personal-reading { gap: 0 25px; }
   .personal-reading > div + div { padding-left: 25px; }
 }
@@ -265,10 +264,10 @@ details[open] .toggle::after { transform: none; }
   .hero-photo { grid-column: 1; grid-row: 2; aspect-ratio: 1.23; }
   .hero-copy { grid-column: 1; grid-row: 3; padding: 0; }
   .hero-copy h2 { width: auto; white-space: normal; font-size: 9.8vw; margin-bottom: 18px; text-wrap: balance; }
-  .hero-copy p { font-size: 1.125rem; line-height: var(--reading-leading); }
+  .hero-copy p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .intro-deck { display: flex; flex-direction: column; gap: 23px; padding-top: 23px; margin-top: 28px; }
   .intro-deck > div, .intro-deck > div + div { padding: 0; border: 0; }
-  .intro-deck p { font-size: 1.125rem; line-height: 1.7; }
+  .intro-deck p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .intro-deck .intro-close { padding: 5px 0 0; text-align: left; font-size: 1.8125rem; }
   .exploration { margin-top: 30px; padding: 30px 0 34px; }
   .explore-title { margin-bottom: 27px; }
@@ -276,7 +275,7 @@ details[open] .toggle::after { transform: none; }
   .explore-layout { grid-template-columns: 1fr; gap: 24px; }
   .explore-feature, .explore-pair > div { padding: 0; border: 0; }
   .explore-pair > div { border-top: 1px solid var(--rule); padding-top: 22px; }
-  .explore-feature p, .explore-pair p { font-size: 1.125rem; line-height: 1.7; }
+  .explore-feature p, .explore-pair p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .meaning { margin-top: 12px; padding: 24px 6%; }
   .meaning p { font-size: 1.5625rem; }
   .perspective { padding: 30px 0 36px; }
@@ -288,7 +287,7 @@ details[open] .toggle::after { transform: none; }
   .perspective-reading { grid-template-columns: 1fr; gap: 28px; margin-top: 28px; }
   .perspective-left { padding: 0; }
   .perspective-right { padding: 26px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
-  .perspective-reading p { font-size: 1.125rem; line-height: 1.7; }
+  .perspective-reading p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .perspective-right p + p { margin-top: 24px; }
   .coaching-proverb { padding: 19px 10px; margin-top: 24px; }
   .coaching-proverb p[lang] { font-size: 1.4375rem; }
@@ -296,7 +295,7 @@ details[open] .toggle::after { transform: none; }
   .approach-heading h2 { font-size: 2.25rem; line-height: 1.2; max-width: none; }
   .approach-copy { margin-top: 28px; padding: 26px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
   .approach-copy h3 { font-size: 1.5625rem; margin-bottom: 16px; }
-  .approach-copy p { font-size: 1.125rem; }
+  .approach-copy p { font-size: var(--reading-size); }
   .approach-choice { font-size: 1.5625rem; margin-top: 28px; padding: 22px 18px; }
   .personal { padding: 28px 0 34px; }
   .personal-composition { grid-template-columns: 1fr; grid-template-rows: auto auto auto; gap: 24px; }
@@ -307,7 +306,7 @@ details[open] .toggle::after { transform: none; }
   .personal-composition .standfirst { grid-column: 1; grid-row: 3; padding: 0; font-size: 1.6875rem; line-height: 1.4; }
   .personal-reading { grid-template-columns: 1fr; gap: 24px; margin-top: 26px; padding-top: 24px; }
   .personal-reading > div:first-child, .personal-reading > div + div { padding: 0; border: 0; }
-  .personal-reading p { font-size: 1.125rem; line-height: var(--reading-leading); }
+  .personal-reading p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .personal-reading p + p { margin-top: var(--paragraph-space); }
   .parting { border-width: 18px; border-image-width: 18px; padding: 24px 10px; min-height: 0; margin-bottom: 32px; }
   .parting > p { font-size: clamp(1.75rem, 8vw, 2.375rem); line-height: 1.2; }
@@ -435,8 +434,8 @@ details[open] .toggle::after { transform: none; }
 .faq .faq-header h2 em { font-style: italic; }
 .faq .faq-header h2 em::before { content: none; }
 .faq .faq-layout { display: block; }
-.faq .answer { max-width: 65ch; padding: 0 0 28px; font-size: 18px; }
-.faq .answer p { font-size: 18px; line-height: 1.7; }
+.faq .answer { max-width: 65ch; padding: 0 0 28px; font-size: var(--reading-size); }
+.faq .answer p { font-size: var(--reading-size); line-height: var(--reading-leading); }
 .faq .answer .faq-proverb { color: var(--blue, #345961); font-style: italic; }
 @media (max-width: 600px) {
   .faq .faq-header { padding-bottom: 22px; }
