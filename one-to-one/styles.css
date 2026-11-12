@@ -114,8 +114,8 @@ svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width:
 /* Painted saying panels share the homepage artwork. Lettering stays live HTML. */
 .coaching-proverb, .parting { background: var(--blue); color: var(--paper); text-align: center; border-style: solid; border-color: transparent; border-image-source: var(--painted-frame); border-image-slice: 110 fill; border-image-repeat: stretch; display: flex; flex-direction: column; justify-content: center; }
 .coaching-proverb { margin-top: 28px; border-width: 16px; border-image-width: 16px; padding: 17px 10px; }
-.coaching-proverb p[lang] { font: 700 clamp(1.125rem, 1.55vw, 1.375rem)/1.3 var(--display); letter-spacing: -.015em; text-wrap: balance; }
-.coaching-proverb .proverb-translation { font: 400 1rem/1.4 var(--display); margin: 0; }
+.coaching-proverb p[lang] { font: 700 clamp(1.625rem, 2.2vw, 2rem)/1.3 var(--display); letter-spacing: -.015em; text-wrap: balance; }
+.coaching-proverb .proverb-translation { font: 400 1.25rem/1.4 var(--display); margin: 0; }
 .proverb-translation::before, .parting > div p::before { content: ''; display: block; border-top: 1px solid currentColor; opacity: .85; }
 .proverb-translation::before { width: 70px; margin: 13px auto 10px; }
 
@@ -290,7 +290,7 @@ details[open] .toggle::after { transform: none; }
   .perspective-reading p { font-size: var(--reading-size); line-height: var(--reading-leading); }
   .perspective-right p + p { margin-top: var(--paragraph-space); }
   .coaching-proverb { padding: 19px 10px; margin-top: 24px; }
-  .coaching-proverb p[lang] { font-size: 1.4375rem; }
+  .coaching-proverb p[lang] { font-size: 1.625rem; }
   .approach { display: block; padding: 32px 0; }
   .approach-heading h2 { font-size: 2.25rem; line-height: 1.2; max-width: none; }
   .approach-copy { margin-top: 28px; padding: 26px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
