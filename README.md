@@ -1,6 +1,6 @@
 # Joe McHugh Coaching
 
-Current static Home and About pages, replacing the earlier wireframe.
+Current static Home, About, One-to-One and Team Coaching pages.
 
 - Home: `index.html`
 - About: `about/index.html`
@@ -21,12 +21,11 @@ to check links, responsive assets and draft-state invariants.
 
 ## Draft state
 
-The design, palette and approved copy are retained. Header One-to-one and Team
-labels deliberately remain unlinked until their individual pages are ready.
+The design, palette and approved copy are retained. All four pages are connected through the shared navigation.
 Booking/form integration, approved testimonials and Friday Corner posts/link
 remain unfinished. No tracking is included.
 
-Both pages retain noindex while unfinished. No production domain, canonical URL,
+All pages retain noindex while unfinished. No production domain, canonical URL,
 social image or privacy policy has been invented. Confirm those at launch, then
 add the final sitemap/robots policy and remove noindex. Noindex is not privacy
 or access control. The repository and any configured deployment retain their
@@ -40,3 +39,5 @@ Original photographs, unused exports, local audit screenshots, internal notes
 and design archives are not included. The old wireframe is recoverable from
 Git history. Automated accessibility checks passed at desktop/mobile widths;
 manual photo-contrast, zoom and assistive-technology review remain launch checks.
+
+Team Coaching: `team-coaching/index.html`. Includes the approved compact diagram, voice divider and paired pro bono / Irish saying layout.
