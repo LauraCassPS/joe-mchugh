@@ -412,3 +412,15 @@ footer{border-color:var(--ink);color:var(--blue)}
 @media(max-width:650px){.helicopter-section .colour-photo:after{background:linear-gradient(to bottom,rgba(0,0,0,.43),rgba(0,0,0,.34) 65%,rgba(0,0,0,.22))}.purpose .purpose-photo:after{background:rgba(0,0,0,.27)}}
 /* Keep the working row compact even on wide desktop screens. */
 @media(min-width:651px){.working{align-items:start}.working-photo{height:360px;min-height:0;aspect-ratio:auto;align-self:start}.working-photo img{object-position:56% 45%}}
+
+/* Approved body and FAQ reading size, 16 November 2026. */
+.intro-columns p:not(.hero-opportunity),
+.helicopter-section .c-body p,
+.hearing .photo-body p,
+.purpose .purpose-copy p,
+.next-columns p,
+.working>div>p,
+.outdoors p,
+.accessible>p,
+.faq .answer p,
+.conversation-options p{font-size:.9375rem;line-height:1.5}
