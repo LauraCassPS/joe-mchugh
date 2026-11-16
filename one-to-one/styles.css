@@ -485,4 +485,9 @@ details[open] .toggle::after { transform: none; }
 .footer-bottom .ethics-footer-link{gap:7px}
 .footer-bottom .ethics-footer-link svg{width:16px;height:16px}
 @media(max-width:600px){.footer-bottom{column-gap:16px;row-gap:4px}.footer-bottom small{flex-basis:100%;max-width:none}}
+
 .site-footer .footer-book:hover{color:var(--paper)}
+
+/* Site-wide image transparency note. */
+.site-footer .footer-bottom{flex-wrap:wrap}
+.site-footer .footer-bottom .ai-image-note{flex-basis:100%;max-width:none;margin:0;font:400 13px/1.6 Source,Arial,sans-serif;color:var(--ink)}

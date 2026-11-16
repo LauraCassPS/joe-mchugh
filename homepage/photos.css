@@ -62,3 +62,7 @@
 .journey-photo{max-width:260px}
 .journey-photo-crop{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden}
 .journey-photo-crop img{position:absolute;display:block;width:161%;max-width:none;height:auto;left:-39%;top:-2%;filter:none}
+
+/* Photographer credits sit beneath the existing image crop. */
+.credited-photo.credited-photo{position:relative;overflow:visible;margin-bottom:28px}
+.credited-photo .photo-credit{position:absolute;top:100%;left:0;right:0;padding-top:6px;color:var(--ink);font:400 12px/1.5 Source,Arial,sans-serif;text-align:right}
