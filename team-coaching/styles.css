@@ -424,3 +424,10 @@ footer{border-color:var(--ink);color:var(--blue)}
 .accessible>p,
 .faq .answer p,
 .conversation-options p{font-size:.9375rem;line-height:1.5}
+
+/* Footer professional standards link */
+.footer-bottom{flex-wrap:wrap}
+.footer-bottom .ethics-footer-link{gap:7px}
+.footer-bottom .ethics-footer-link svg{width:16px;height:16px}
+@media(max-width:600px){.footer-bottom{column-gap:16px;row-gap:4px}.footer-bottom small{flex-basis:100%;max-width:none}}
+.site-footer .footer-book:hover{color:var(--paper)}
