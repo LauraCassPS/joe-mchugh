@@ -42,4 +42,4 @@ manual photo-contrast, zoom and assistive-technology review remain launch checks
 
 Team Coaching: `team-coaching/index.html`. Includes the approved compact diagram, voice divider and paired pro bono / Irish saying layout.
 
-Team Coaching review update, 16 November 2026: office hero photograph, softer photo treatments, compact working section and outdoor retreat section with a pending-permission photo placeholder. Six FAQs are present, including two clearly labelled editorial notes awaiting Joe’s input. Calendar and form integrations remain pending.
+Team Coaching review update, 16 November 2026: office hero photograph, softer photo treatments, compact working section and outdoor retreat section with a pending-permission photo placeholder. Six FAQs are present with the updated client-supplied answers for confidentiality, participation and workshop timing. Calendar and form integrations remain pending.
