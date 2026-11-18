@@ -22,8 +22,7 @@ to check links, responsive assets and draft-state invariants.
 ## Draft state
 
 The design, palette and approved copy are retained. All four pages are connected through the shared navigation.
-Booking/form integration, approved testimonials and Friday Corner posts/link
-remain unfinished. No tracking is included.
+The shared contact forms submit to Formspree. Friday Corner displays the SociableKIT LinkedIn widget, with its free-plan credit. Calendar booking and homepage testimonials remain unfinished. Form delivery still needs an end-to-end inbox check.
 
 All pages retain noindex while unfinished. No production domain, canonical URL,
 social image or privacy policy has been invented. Confirm those at launch, then
@@ -42,6 +41,6 @@ manual photo-contrast, zoom and assistive-technology review remain launch checks
 
 Team Coaching: `team-coaching/index.html`. Includes the approved compact diagram, voice divider and paired pro bono / Irish saying layout.
 
-Team Coaching review update, 16 November 2026: office hero photograph, softer photo treatments, compact working section and outdoor retreat section with a pending-permission photo placeholder. Six FAQs are present with the updated client-supplied answers for confidentiality, participation and workshop timing. Calendar and form integrations remain pending.
+Team Coaching review update, 16 November 2026: office hero photograph, softer photo treatments, compact working section and outdoor retreat section with a pending-permission photo placeholder. Six FAQs are present with the updated client-supplied answers for confidentiality, participation and workshop timing. Calendar integration remains pending; the shared contact form is connected to Formspree.
 
 Code of Ethics: `code-of-ethics/index.html`. Includes the December 2025 PDF hosted with the site and new-tab footer links. Statement remains draft pending Joe’s confirmation of practice and complaints arrangements.

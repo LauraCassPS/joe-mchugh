@@ -1,0 +1,44 @@
+@font-face{font-family:ContactDisplay;src:url('../homepage/assets/fonts/old-standard-tt-bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+/* Approved contact block D, shared by Home, About and both service pages. */
+.contact-block{--contact-blue:#345961;--contact-ink:#30312c;--contact-paper:#f3eee2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto;gap:0 64px;margin:0;padding:30px 0 32px;border-top:1px solid var(--contact-ink);border-bottom:3px double var(--contact-ink);color:var(--contact-ink);scroll-margin-top:24px}
+.contact-block>.contact-booking,.contact-block>.contact-message{display:grid;grid-template-rows:subgrid;grid-row:1 / span 3;min-width:0;position:relative;margin:0;padding:0;border:0}
+.contact-block>.contact-booking{grid-column:1}.contact-block>.contact-message{grid-column:2}
+.contact-block>.contact-message::before{content:"";position:absolute;left:-32px;top:0;bottom:0;border-left:1px solid #8e9183}
+.contact-block :is(h2,h3){font:700 30px/1.2 ContactDisplay,Georgia,serif;letter-spacing:-.02em;color:var(--contact-ink);margin:0 0 16px;padding:0;text-align:left;text-wrap:wrap}
+.contact-block .contact-guidance,.contact-block .contact-message>p{font:400 14px/1.75 var(--body,Libre,Georgia,serif);max-width:53ch;margin:0;padding:0;text-wrap:wrap}
+.contact-block .contact-action,.contact-block .contact-disclosure>summary{display:flex;position:relative;align-items:center;justify-content:space-between;gap:20px;width:100%;max-width:360px;min-height:64px;height:64px;box-sizing:border-box;padding:18px 21px;border:1px solid var(--contact-blue);border-radius:0;text-decoration:none;box-shadow:none;outline:none;cursor:pointer}
+.contact-block .contact-action{font:600 14px/1.5 var(--label,Source,Arial,sans-serif);letter-spacing:.08em;text-transform:uppercase;background:var(--contact-blue);color:var(--contact-paper)}
+.contact-block .contact-booking>.contact-action,.contact-block .contact-disclosure{margin:22px 0 0;align-self:start}
+.contact-block .contact-action::after,.contact-block .contact-disclosure>summary::after{content:"";position:absolute;inset:4px;border:1px solid #f3eee26b;pointer-events:none}
+.contact-block .contact-disclosure>summary{font:600 16px/1.5 var(--label,Source,Arial,sans-serif);letter-spacing:normal;text-transform:none;list-style:none;background:#f7f3e9;color:var(--contact-blue)}
+.contact-block .contact-disclosure>summary::after{border-color:var(--contact-blue)}
+.contact-block summary::-webkit-details-marker{display:none}
+.contact-block .contact-action svg,.contact-block summary svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;flex-shrink:0}
+.contact-block .contact-disclosure[open]>summary svg{transform:rotate(180deg)}
+.contact-block .contact-action[href]:hover,.contact-block button.contact-action:hover{background:#62694b;border-color:#62694b}
+.contact-block summary:hover{background:#e6e3d8}
+.contact-block .contact-action:focus-visible,.contact-block summary:focus-visible{outline:3px solid var(--contact-blue);outline-offset:4px}
+.contact-block .contact-action[aria-disabled=true]{cursor:default}
+.contact-block .contact-form{margin:18px 0 0;padding:0}
+.contact-block .identity-fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.contact-block .contact-form label{display:block;font:600 15px/1.4 var(--label,Source,Arial,sans-serif);margin:12px 0 4px}
+.contact-block .identity-fields label{margin-top:0}
+.contact-block input:not([type=checkbox]),.contact-block textarea{display:block;box-sizing:border-box;width:100%;border:0;border-bottom:1px solid #656b61;border-radius:0;background:transparent;color:var(--contact-ink);min-height:38px;padding:7px 6px;margin:0;font:400 16px/1.5 var(--body,Libre,Georgia,serif);caret-color:var(--contact-blue)}
+.contact-block input:not([type=checkbox]):hover,.contact-block textarea:hover,.contact-block input:not([type=checkbox]):focus,.contact-block textarea:focus{background:#e6e3d8}
+.contact-block input:not([type=checkbox]):focus-visible,.contact-block textarea:focus-visible{outline:none;border-bottom:2px solid var(--contact-blue);padding-bottom:6px}
+.contact-block textarea{height:74px;min-height:74px;resize:vertical;overflow-y:auto}
+.contact-block .interest-fields{margin:16px 0 10px;padding:0;border:0;min-width:0}
+.contact-block legend{font:600 15px/1.4 var(--label,Source,Arial,sans-serif);padding:0}
+.contact-block .interest-options{display:grid;grid-template-columns:1fr 1fr;column-gap:14px;margin-top:5px}
+.contact-block .interest-options label{display:flex;align-items:center;gap:8px;min-height:34px;margin:0;font-weight:400;cursor:pointer}
+.contact-block .interest-options input{appearance:auto;width:17px;height:17px;min-height:0;margin:0;padding:0;accent-color:var(--contact-blue);flex-shrink:0}
+.contact-block input[type=checkbox]:focus-visible{outline:2px solid var(--contact-blue);outline-offset:3px}
+.contact-block .contact-form .contact-action{max-width:240px;min-height:48px;height:auto;padding:12px 18px;margin-top:16px}
+.contact-block .contact-status{font:400 14px/1.5 var(--label,Source,Arial,sans-serif);margin:10px 0 0}.contact-block .contact-status:empty{display:none}
+.contact-about{margin-top:56px}.contact-about .contact-invitation{font:400 clamp(24px,2.5vw,32px)/1.4 var(--display);color:var(--blue);max-width:860px;margin:0 0 28px}
+@media(max-width:1000px){.contact-block{column-gap:40px}.contact-block>.contact-message::before{left:-20px}}
+@media(max-width:760px){.contact-block{display:block;padding-top:26px;padding-bottom:24px}.contact-block>.contact-booking,.contact-block>.contact-message{display:block}.contact-block>.contact-message{margin-top:30px;padding-top:26px;border-top:1px solid #8e9183}.contact-block>.contact-message::before{display:none}.contact-block :is(h2,h3){font-size:28px}.contact-block .contact-booking>.contact-action,.contact-block .contact-disclosure>summary{max-width:none}.contact-block .interest-options label{min-height:44px}}
+@media(max-width:380px){.contact-block .identity-fields{grid-template-columns:1fr;gap:12px}.contact-block .interest-options{grid-template-columns:1fr}}
+@media(forced-colors:active){.contact-block input:not([type=checkbox]):focus-visible,.contact-block textarea:focus-visible{outline:2px solid Highlight;outline-offset:2px}.contact-block .contact-action,.contact-block summary{border-color:ButtonText}.contact-block .contact-action::after,.contact-block summary::after{border-color:ButtonText}}
+/* The homepage's next section already supplies the closing double rule. */
+.starting-section .contact-block{border-bottom:0}

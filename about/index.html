@@ -37,7 +37,8 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="site.min.css?v=20261116-image-disclosure">
+  <link rel="stylesheet" href="site.min.css?v=20261118-contact">
+<script src="../shared/contact.js?v=20261118-formspree" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to About Joe</a>
@@ -200,37 +201,40 @@
           </section>
         </div>
       </aside>
-<section class="conversation-desk" id="conversation" aria-labelledby="booking-heading">
-          <p class="conversation-invitation">If you'd like to have a conversation about working together, I'd be delighted to hear from you.</p>
-          <div class="booking-column">
+<section class="contact-about" aria-label="Get in touch"><p class="contact-invitation">If you'd like to have a conversation about working together, I'd be delighted to hear from you.</p><div class="contact-block" id="conversation" aria-labelledby="booking-heading">
+          <div class="contact-booking">
             <h2 id="booking-heading">Book a conversation</h2>
-            <p class="booking-guidance">Choose a date and time that suits you for a short, complimentary video call. You'll receive an email confirmation with a link to join.</p>
+            <p class="contact-guidance">Choose a date and time that suits you for a short, complimentary video call. You'll receive an email confirmation with a link to join.</p>
             <!-- Replace with the confirmed Cal.com booking URL; Whereby joining details are supplied in the booking confirmation. -->
-            <a class="coaching-cta" role="link" aria-disabled="true"><span>Book a conversation</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+            <a class="contact-action" role="link" aria-disabled="true"><span>Book a conversation</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
           </div>
-          <div class="message-column">
+          <div class="contact-message">
             <h2>Prefer to send a message?</h2>
             <p>If you have a question or would like to tell me a little about what you're looking for, you can get in touch using the form below.</p>
-            <details class="message-disclosure" id="keynote-message">
+            <details class="contact-disclosure" id="keynote-message">
               <summary>Send a message <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
-            <!-- Preview only. Connect the user's form service before enabling fields or submission. -->
-            <form class="message-form" aria-describedby="form-preview-note">
-              <p id="form-preview-note" class="integration-note">Form preview — not connected yet.</p>
-              <fieldset disabled>
-                <legend class="visually-hidden">Send a message</legend>
-                <label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" type="text">
-                <label for="contact-email">Email</label><input id="contact-email" name="email" autocomplete="email" type="email">
-                <label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="5"></textarea>
-                <button type="submit" class="coaching-cta" disabled><span>Send Message</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></button>
-              </fieldset>
+            <form class="contact-form" id="contact-form" aria-label="Send Joe a message" action="https://formspree.io/f/xeagandk" method="post">
+              <div class="identity-fields">
+                <div><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" type="text" required></div>
+                <div><label for="contact-email">Email</label><input id="contact-email" name="email" autocomplete="email" type="email" required></div>
+              </div>
+              <fieldset class="interest-fields"><legend>I’m interested in…</legend><div class="interest-options">
+                <label><input type="checkbox" name="interest" value="One-to-one coaching"><span>One-to-one coaching</span></label>
+                <label><input type="checkbox" name="interest" value="Team coaching"><span>Team coaching</span></label>
+                <label><input type="checkbox" name="interest" value="Keynote speaking"><span>Keynote speaking</span></label>
+                <label><input type="checkbox" name="interest" value="Other"><span>Other</span></label>
+              </div></fieldset>
+              <label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="2" required></textarea>
+              <button type="submit" class="contact-action"><span>Send Message</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></button>
+              <p class="contact-status" role="status"></p>
             </form>
             </details>
           </div>
-        </section>
+        </div></section>
     </main>
     <footer class="site-footer" id="footer">
       <div class="footer-main">
-        <a class="footer-name" href="#top" aria-label="Joe McHugh Coaching — back to top">Joe McHugh <span>Coaching</span></a>
+        <a class="footer-name" href="../index.html" aria-label="Joe McHugh Coaching home">Joe McHugh <span>Coaching</span></a>
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="../one-to-one/index.html">One-to-one coaching</a>
           <a href="../team-coaching/index.html">Team coaching</a>

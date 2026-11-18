@@ -761,7 +761,7 @@ a[aria-disabled=true] {
 
 
 
-.friday-ending{border-top:1px solid var(--rule);padding:24px 0;border-bottom:4px double var(--ink);display:flex;justify-content:flex-end}
+.friday-ending{padding:24px 0 0;display:flex;justify-content:flex-end}
 .friday-ending .coaching-cta{margin:0;max-width:420px;width:100%}
 @media(max-width:1000px){.conversation-desk,.friday-posts,.friday-introduction{gap:40px}.message-column::before{left:-20px}}
 @media(max-width:760px){
@@ -864,3 +864,6 @@ a[aria-disabled=true] {
 /* Site-wide image transparency note. */
 .site-footer .footer-bottom{flex-wrap:wrap}
 .site-footer .footer-bottom .ai-image-note{flex-basis:100%;max-width:none;margin:0;font:400 13px/1.6 Source,Arial,sans-serif;color:var(--ink)}
+
+/* Live posts follow the Friday Corner introduction and site CTA. */
+.friday-live-widget{margin-top:24px;min-width:0;max-width:100%}
