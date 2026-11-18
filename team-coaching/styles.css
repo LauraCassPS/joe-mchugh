@@ -82,7 +82,8 @@
 @media(max-width:1000px) and (min-width:701px){.voice-top{padding:32px 22px;grid-template-columns:54% 46%}.voice-version blockquote{padding-right:16px}.voice-version blockquote p{font-size:2.2cqw}.pledge{padding-left:12px}.pledge h3,.pledge .counts,.pledge .must{font-size:3.5cqw}}
 @media(max-width:700px){.voice-top{display:block;padding:28px 24px}.voice-version blockquote{padding:0}.voice-version blockquote p{font-size:22px;line-height:1.5}.personal-line+.personal-line{margin-top:9px}.pledge{padding:26px 0 0;margin-top:26px;border-top:1px solid #8e9183}.pledge h3,.pledge .counts,.pledge .must{font-size:32px;line-height:1.3}.pledge .counts,.pledge .must{margin-top:16px}.voice-version .role-statement{font-size:25px;padding:26px 22px;line-height:1.4}}
 
-.hearing .voice-version{margin-top:40px}
+.hearing .voice-version{margin-top:0}
+.hearing .voice-top{padding-top:28px}
 /* Keep the photograph within its column when the adjacent copy is taller. */
 .hearing .circle-photo-copy .bonnet-photo{width:100%;min-width:0;aspect-ratio:auto;min-height:300px}
 @media(max-width:700px){.hearing .circle-photo-copy .bonnet-photo{aspect-ratio:1.5;min-height:0}}
@@ -343,6 +344,14 @@ footer{border-color:var(--ink);color:var(--blue)}
 .hearing .diagram-story .seven-circles{width:100%;max-width:700px;margin:0 auto}
 .hearing .diagram-story .circle-ending{font:400 clamp(25px,2.3vw,31px)/1.3 Old;color:var(--blue);text-align:center;text-wrap:balance;margin:34px auto 0;padding:0;max-width:39ch}
 @media(min-width:1101px){.hearing .seven-circles li,.hearing .seven-circles .circle-centre{font-size:clamp(16px,2.65cqw,19px)}}
+/* Keep the hearing image and copy together with a fixed reading gap. */
+@media(min-width:1101px){
+  .hearing .paired-columns{align-items:stretch}
+  .hearing .photo-story,.hearing .diagram-story{display:flex;flex-direction:column}
+  .hearing .photo-story .bonnet-photo,.hearing .diagram-story .seven-circles{flex-shrink:0}
+  .hearing .photo-body{margin-top:22px;padding-top:0}
+  .hearing .diagram-story .circle-ending{margin-top:auto;padding-top:34px}
+}
 @media(max-width:1100px){.hearing .paired-columns{grid-template-columns:1fr;gap:36px}.hearing .photo-story{max-width:700px;margin:auto}.hearing .photo-story .bonnet-photo{aspect-ratio:1.5}.hearing .diagram-story{width:100%;max-width:700px;margin:auto}.hearing .diagram-story .circle-ending{margin-top:24px}}
 
 /* Approved mockup framing: centred title and opening/closing rules. */
@@ -383,14 +392,12 @@ footer{border-color:var(--ink);color:var(--blue)}
 .outdoors p{font-size:1.125rem;line-height:1.7}
 .outdoors a{color:var(--blue);text-decoration-thickness:1px}
 .outdoors a:hover{text-decoration-thickness:2px}
-.outdoors-placeholder{grid-column:1;grid-row:1;align-self:stretch;min-height:360px;display:flex;align-items:center;justify-content:center;background:var(--sand);border:1px solid var(--rule);text-align:center;padding:28px}
-.outdoors-placeholder figcaption{font:400 27px/1.3 Old,Georgia,serif;color:var(--blue)}
-.outdoors-placeholder span{display:block;font:400 16px/1.5 Source,sans-serif;margin-top:12px;color:var(--ink)}
+.outdoors-photo{position:relative;isolation:isolate;grid-column:1;grid-row:1;margin:0;min-width:0}
 
 
 
 @media(max-width:900px){.outdoors{gap:28px}}
-@media(max-width:650px){.hero-photo{aspect-ratio:3/2}.outdoors{display:flex;flex-direction:column;align-items:stretch}.outdoors-placeholder{min-height:260px;aspect-ratio:4/3}.outdoors h2{margin-bottom:24px}}
+@media(max-width:650px){.hero-photo{aspect-ratio:3/2}.outdoors{display:flex;flex-direction:column;align-items:stretch}.outdoors-photo{width:100%}.outdoors h2{margin-bottom:24px}}
 /* Keep the existing question circles within narrow mobile screens. */
 @media(max-width:450px){.hearing .seven-circles ul{grid-template-columns:minmax(0,1fr);justify-items:center}.hearing .seven-circles li:nth-child(n){width:210px;height:210px;padding:28px;font-size:21px}}
 
@@ -410,8 +417,12 @@ footer{border-color:var(--ink);color:var(--blue)}
 .helicopter-section .colour-photo:after{background:linear-gradient(90deg,rgba(0,0,0,.43),rgba(0,0,0,.28) 50%,rgba(243,238,226,.16) 78%)}
 .purpose .purpose-photo:after{background:rgba(0,0,0,.27)}
 @media(max-width:650px){.helicopter-section .colour-photo:after{background:linear-gradient(to bottom,rgba(0,0,0,.43),rgba(0,0,0,.34) 65%,rgba(0,0,0,.22))}.purpose .purpose-photo:after{background:rgba(0,0,0,.27)}}
-/* Keep the working row compact even on wide desktop screens. */
-@media(min-width:651px){.working{align-items:start}.working-photo{height:360px;min-height:0;aspect-ratio:auto;align-self:start}.working-photo img{object-position:56% 45%}}
+/* The desktop photograph follows the text height; reserve space for its credit. */
+@media(min-width:651px){
+  .working{align-items:stretch;padding-bottom:28px}
+  .working .working-photo.credited-photo{height:auto;min-height:0;aspect-ratio:auto;align-self:stretch;margin-bottom:0}
+  .working-photo img{object-position:56% 0%}
+}
 
 /* Footer professional standards link */
 .footer-bottom{flex-wrap:wrap}
@@ -479,3 +490,9 @@ footer{border-color:var(--ink);color:var(--blue)}
 .outdoors + .reader-letter{margin-top:42px}
 
 .testimonials.reader-letter{background:transparent;padding-left:0;padding-right:0}
+
+.outdoors-photo img{position:relative;inset:auto;display:block;width:100%;height:auto}
+
+/* Closing thought spans the image and diagram as one shared conclusion. */
+.hearing .hearing-composition > .circle-ending{max-width:none;margin:28px 0 0;padding:0;font:400 28px/1.45 Old,Georgia,serif;color:var(--blue);text-align:center;text-wrap:balance}
+@media(min-width:1101px){.hearing .diagram-story{padding-top:28px}}
