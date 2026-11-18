@@ -42,3 +42,12 @@
 @media(forced-colors:active){.contact-block input:not([type=checkbox]):focus-visible,.contact-block textarea:focus-visible{outline:2px solid Highlight;outline-offset:2px}.contact-block .contact-action,.contact-block summary{border-color:ButtonText}.contact-block .contact-action::after,.contact-block summary::after{border-color:ButtonText}}
 /* The homepage's next section already supplies the closing double rule. */
 .starting-section .contact-block{border-bottom:0}
+
+/* Confirmed delivery replaces the entire message form and its invitation. */
+.contact-block>.contact-message.is-sent{display:block;align-self:start}
+.contact-block .contact-message.is-sent>:not(.contact-confirmation){display:none}
+.contact-block .contact-confirmation{padding:24px;border:1px solid var(--contact-blue);background:#f7f3e9;scroll-margin:24px}
+.contact-block .contact-confirmation :is(h2,h3){color:var(--contact-blue);margin:0 0 16px}
+.contact-block .contact-confirmation p{font:400 16px/1.75 var(--body,Libre,Georgia,serif);max-width:48ch;margin:0}
+.contact-block .contact-confirmation .contact-signature{margin-top:18px;color:var(--contact-blue)}
+.contact-block .contact-confirmation:focus-visible{outline:2px solid var(--contact-blue);outline-offset:5px}

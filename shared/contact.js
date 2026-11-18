@@ -5,9 +5,10 @@ document.querySelectorAll('.contact-form').forEach(form => {
   const status = form.querySelector('[role="status"]');
   const message = form.querySelector('textarea');
   let sending = false;
+  let sent = false;
   form.addEventListener('submit', async event => {
     event.preventDefault();
-    if (sending || !form.reportValidity()) return;
+    if (sending || sent || !form.reportValidity()) return;
     const data = new FormData(form);
     const controls = Array.from(form.querySelectorAll('input, textarea, button'));
     const disabledStates = controls.map(control => control.disabled);
@@ -25,8 +26,26 @@ document.querySelectorAll('.contact-form').forEach(form => {
       });
       if (response.ok) {
         form.reset();
-        message.style.height = '74px';
-        status.textContent = 'Thank you — your message has been sent to Joe.';
+        sent = true;
+        const container = form.closest('.contact-message');
+        const heading = container.querySelector('h2, h3');
+        const confirmation = document.createElement('div');
+        confirmation.className = 'contact-confirmation';
+        confirmation.tabIndex = -1;
+        confirmation.setAttribute('role', 'region');
+        confirmation.setAttribute('aria-label', 'Message sent');
+        const title = document.createElement(heading.tagName.toLowerCase());
+        title.textContent = 'Thank you for getting in touch.';
+        const copy = document.createElement('p');
+        copy.textContent = 'Your message has been sent. I’ll get back to you within two working days.';
+        const signature = document.createElement('p');
+        signature.className = 'contact-signature';
+        signature.textContent = 'Joe';
+        confirmation.append(title, copy, signature);
+        container.append(confirmation);
+        container.classList.add('is-sent');
+        confirmation.focus({ preventScroll: true });
+        confirmation.scrollIntoView({ block: 'nearest', behavior: 'instant' });
       } else {
         const result = await response.json().catch(() => ({}));
         const errors = Array.isArray(result.errors)
