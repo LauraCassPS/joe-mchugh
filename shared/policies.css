@@ -1,0 +1,5 @@
+/* Policy content inherits the Code of Ethics reading layout. */
+.policy-updated{font:400 14px/1.6 var(--label)}
+.policy-article .ethics-opening h1{margin-bottom:20px}
+.policy-article .commitment a{color:var(--blue);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.policy-article .commitment a:hover{color:var(--ink)}

@@ -25,7 +25,7 @@ The design, palette and approved copy are retained. All four pages are connected
 The shared contact forms submit to Formspree. Friday Corner displays the SociableKIT LinkedIn widget, with its free-plan credit. Calendar booking and homepage testimonials remain unfinished. Form delivery still needs an end-to-end inbox check.
 
 All pages retain noindex while unfinished. No production domain, canonical URL,
-social image or privacy policy has been invented. Confirm those at launch, then
+social image has been invented. Confirm those at launch, then
 add the final sitemap/robots policy and remove noindex. Noindex is not privacy
 or access control. The repository and any configured deployment retain their
 existing access settings.
@@ -43,4 +43,6 @@ Team Coaching: `team-coaching/index.html`. Includes the approved compact diagram
 
 Team Coaching review update, 16 November 2026: office hero photograph, softer photo treatments, compact working section and outdoor retreat section with a pending-permission photo placeholder. Six FAQs are present with the updated client-supplied answers for confidentiality, participation and workshop timing. Calendar integration remains pending; the shared contact form is connected to Formspree.
 
-Code of Ethics: `code-of-ethics/index.html`. Includes the December 2025 PDF hosted with the site and new-tab footer links. Statement remains draft pending Joe’s confirmation of practice and complaints arrangements.
+Code of Ethics: `code-of-ethics/index.html`. Includes the December 2025 PDF hosted with the site and same-tab footer links. Statement remains draft pending Joe’s confirmation of practice and complaints arrangements.
+
+Privacy and Cookie Policies: `privacy-policy/index.html` and `cookie-policy/index.html`. Supplied copy dated 18 November 2026, using the Code of Ethics layout. All three footer policy links open in the same tab.
