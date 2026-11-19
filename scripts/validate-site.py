@@ -13,7 +13,7 @@ class Page(HTMLParser):
   if 'id' in a:assert a['id'] not in self.ids;self.ids.add(a['id'])
   if t not in VOID:self.stack.append(t)
  def handle_endtag(self,t):assert self.stack.pop()==t,(self.path,t)
-pages={p:Page(p) for p in [ROOT/'index.html',ROOT/'about/index.html',ROOT/'one-to-one/index.html',ROOT/'team-coaching/index.html']}
+pages={p:Page(p) for p in [ROOT/'index.html',ROOT/'about/index.html',ROOT/'one-to-one/index.html',ROOT/'team-coaching/index.html',ROOT/'privacy-policy/index.html',ROOT/'cookie-policy/index.html',ROOT/'code-of-ethics/index.html']}
 for path,page in pages.items():
  assert sum(t=='h1' for t,a in page.nodes)==1
  assert sum(t=='main' for t,a in page.nodes)==1
