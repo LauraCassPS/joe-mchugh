@@ -17,3 +17,8 @@
   .global-footer-credentials .rcsi{width:108px}
   .global-footer-nav{min-width:0}
 }
+
+
+.global-footer .global-footer-brand{width:220px;max-width:100%;line-height:0}
+.global-footer .global-footer-brand .footer-logo{position:static;display:block;width:100%;max-width:100%;height:auto}
+@media(max-width:700px){.global-footer .global-footer-brand{width:200px}}

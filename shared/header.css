@@ -1,0 +1,4 @@
+/* Supplied transparent charcoal logo. */
+.masthead .name{width:fit-content;margin:0 auto;padding:16px 0 20px;line-height:0}
+.masthead .header-logo{display:block;width:260px;max-width:100%;height:auto}
+@media(max-width:700px){.masthead .name{padding:14px 0 18px}.masthead .header-logo{width:220px}}
