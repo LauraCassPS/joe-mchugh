@@ -8,8 +8,9 @@ for (const [folder, files] of Object.entries({
   about: ['styles.css'],
   'one-to-one': ['styles.css'],
   'team-coaching': ['styles.css'],
+  book: ['styles.css'],
 })) {
-  const css = [...files, '../shared/contact.css', '../shared/footer.css'].map(file => fs.readFileSync(path.join(root, folder, file), 'utf8')).join('\n');
+  const css = (folder === 'book' ? files : [...files, '../shared/contact.css', '../shared/footer.css']).map(file => fs.readFileSync(path.join(root, folder, file), 'utf8')).join('\n');
   const result = new CleanCSS({ level: 1, rebase: false }).minify(css);
   if (result.errors.length) throw new Error(result.errors.join('\n'));
   fs.writeFileSync(path.join(root, folder, 'site.min.css'), result.styles + '\n');
