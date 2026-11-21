@@ -9,7 +9,7 @@
 /* Isolate the shared footer from legacy element-level page styles. */
 .global-footer{display:block;border:0;width:100%;max-width:none;box-sizing:border-box}.global-footer-nav{border:0;padding:0;margin:0;align-items:stretch;justify-content:flex-start;text-transform:none;letter-spacing:normal}.global-footer-nav a,.global-footer-nav span{padding:0;border:0;text-transform:none;letter-spacing:normal}.global-footer .global-footer-note{width:auto;max-width:none;order:initial;margin:0 0 10px}.global-footer svg{max-width:24px}.global-footer .global-footer-brand{text-decoration:none;color:var(--blue)}
 
-
+/* Keep the shared footer within narrow mobile viewports. */
 @media(max-width:380px){
   .global-footer .footer-layout{min-width:0;grid-template-columns:minmax(0,1fr)}
   .global-footer-credentials{gap:16px;min-width:0}
@@ -18,7 +18,7 @@
   .global-footer-nav{min-width:0}
 }
 
-
+/* Transparent Só Coaching mark, sized independently of the masthead. */
 .global-footer .global-footer-brand{width:220px;max-width:100%;line-height:0}
 .global-footer .global-footer-brand .footer-logo{position:static;display:block;width:100%;max-width:100%;height:auto}
 @media(max-width:700px){.global-footer .global-footer-brand{width:200px}}
