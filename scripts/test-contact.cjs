@@ -23,7 +23,7 @@ function setup(fetch, valid = true) {
   };
   vm.runInNewContext(source, {
     document:{querySelectorAll:()=>[form],createElement:tag=>({tagName:tag,children:[],setAttribute(){},append(...children){this.children.push(...children);},focus(){this.focused=true;},scrollIntoView(){this.scrolled=true;}})}, window:{addEventListener(){}}, location:{hash:''},
-    fetch, FormData:class {constructor(value){assert.equal(value,form); assert.equal(input.disabled,false);}},
+    fetch, FormData:class {constructor(value){assert.equal(value,form); assert.equal(input.disabled,false);} get(){return null;}},
     AbortController, setTimeout, clearTimeout
   });
   return {submit:()=>handler({preventDefault(){}}),button,input,message,label,status,container,confirmation,resets:()=>resets};
@@ -41,3 +41,4 @@ for(const [name,response] of [['validation',{ok:false,status:422,json:async()=>(
 }
 test('network failure does not claim delivery or discard data',async()=>{const app=setup(async()=>{throw Error('offline');});await app.submit();assert.equal(app.resets(),0);assert.equal(app.confirmation.length,0);assert.match(app.status.textContent,/couldn’t confirm/);assert.equal(app.button.disabled,false);});
 test('invalid fields do not post',async()=>{let calls=0;const app=setup(async()=>{calls++;},false);await app.submit();assert.equal(calls,0);});
+

@@ -1,0 +1,26 @@
+/* Newsletter: painted panel shared with the Irish sayings. */
+.newsletter-editorial{display:grid;grid-template-columns:minmax(0,1.95fr) minmax(0,1fr);gap:28px;align-items:center;margin:32px 0;background:var(--blue);color:var(--paper);border:24px solid transparent;border-image:url('../homepage/assets/proverb-painted-panel-web-optimized.webp') 110 fill /24px/0 stretch;padding:20px 22px}
+.newsletter-editorial h2{font:400 clamp(28px,3.1vw,42px)/1.12 var(--display);white-space:nowrap;letter-spacing:-.025em;margin:0 0 15px;color:var(--paper)}
+.newsletter-editorial .newsletter-description{font:400 16px/1.65 var(--label);max-width:none;margin:0}
+.newsletter-editorial .newsletter-invitation{font-size:14px;line-height:1.5;font-style:italic;margin-top:12px;white-space:nowrap}
+.newsletter-editorial form{min-width:0;width:100%;margin:0}
+.newsletter-editorial label{display:block;font:500 14px/1.4 var(--label);margin-bottom:7px}
+.newsletter-editorial .input-row{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:stretch;gap:8px;width:100%}
+.newsletter-editorial input{flex:1 1 0;min-width:0;width:0;height:44px;min-height:44px;padding:8px 10px;font:400 16px/1.4 var(--label);border:1px solid var(--paper);border-radius:0;background:var(--paper);color:var(--ink)}
+.newsletter-editorial button{flex:0 0 82px;width:82px;min-width:82px;height:44px;border:1px solid var(--paper);border-radius:0;background:var(--paper);color:var(--blue);font:600 14px/1.4 var(--label);padding:8px 6px;cursor:pointer}
+.newsletter-editorial button:hover{background:var(--sand)}
+.newsletter-editorial .signup-details{display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:10px}
+.newsletter-editorial .signup-details p,.newsletter-editorial .signup-details a{font:400 12px/1.5 var(--label);margin:0;color:var(--paper)}
+.newsletter-editorial a{color:var(--paper);text-underline-offset:4px}
+.newsletter-editorial .credit{display:inline-block;font:400 12px/1.5 var(--label);margin-top:8px}
+.newsletter-editorial :is(input,button,a):focus-visible{outline:2px solid var(--paper);outline-offset:4px}
+.newsletter-loading{display:none}
+.newsletter-editorial button[data-active] span:first-child{display:none}
+.newsletter-editorial button[data-active] .newsletter-loading{display:inline}
+.newsletter-editorial button[data-active],.newsletter-editorial button:disabled{cursor:wait}
+.newsletter-editorial .formkit-alert{margin:0 0 12px;padding:12px;border:1px solid var(--paper);list-style:none;font:400 16px/1.5 var(--label);color:var(--paper)}
+.newsletter-editorial .formkit-alert:empty{display:none}
+@media(max-width:1000px){.newsletter-editorial{grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:24px;padding:18px 12px}.newsletter-editorial h2{font-size:30px}.newsletter-editorial .newsletter-description{font-size:15px}.newsletter-editorial .newsletter-invitation{font-size:13px;white-space:normal}}
+@media(max-width:760px){.newsletter-editorial{grid-template-columns:1fr;gap:22px;border-width:18px;border-image-width:18px;padding:20px 12px}.newsletter-editorial h2{font-size:clamp(25px,5.9vw,36px);white-space:normal;margin-bottom:12px}.newsletter-editorial .newsletter-description{font-size:16px}.newsletter-editorial .newsletter-invitation{font-size:14px}.desktop-copy-break{display:none}}
+@media(forced-colors:active){.newsletter-editorial{border-image:none;border:2px solid CanvasText;background:Canvas;color:CanvasText}}
+

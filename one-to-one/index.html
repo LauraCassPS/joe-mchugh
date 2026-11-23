@@ -40,8 +40,8 @@
   }
 }
   </script>
-  <link rel="stylesheet" href="site.min.css?v=20261121-colour-logo">
-<script src="../shared/contact.js?v=20261118-confirmation" defer></script>
+  <link rel="stylesheet" href="site.min.css?v=20261123-contact-row">
+<script src="../shared/contact.js?v=20261123-newsletter-optin" defer></script>
 
 <link rel="icon" href="../homepage/assets/favicon.ico?v=20261121-icons" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../homepage/assets/favicon-32.png?v=20261121-icons">
@@ -52,8 +52,8 @@
 <body><a class="skip" href="#main">Skip to coaching</a>
 <div class="sheet" id="top">
 
-<header class="masthead"><a class="name" href="../index.html" aria-label="Só Coaching — Joe McHugh — home"><img class="header-logo" src="../homepage/assets/so-coaching-joemchugh.svg" width="1310" height="510" alt="Só Coaching — Joe McHugh" decoding="async"></a>
-<nav aria-label="Main navigation"><a href="#main" aria-current="page">One-to-one coaching</a><a href="../team-coaching/index.html">Team coaching</a><a href="../about/index.html">About Joe</a><a href="../book/index.html">Book</a><a class="book" href="https://cal.com/joemchugh.coaching-gmail.com/book-a-conversation" target="_blank" rel="noopener noreferrer" aria-label="Book a conversation (opens in a new tab)">Book a conversation</a>
+<header class="masthead masthead-newsletter"><a class="name" href="../index.html" aria-label="Só Coaching — Joe McHugh — home"><img class="header-logo" src="../homepage/assets/so-coaching-joemchugh.svg" width="1310" height="510" alt="Só Coaching — Joe McHugh" decoding="async"></a>
+<nav aria-label="Main navigation"><a href="#main" aria-current="page">One-to-one coaching</a><a href="../team-coaching/index.html">Team coaching</a><a href="../about/index.html">About Joe</a><a href="../book/index.html">Book</a><a class="newsletter-nav" href="#newsletter-title">Sign up to newsletter</a><a class="book" href="https://cal.com/joemchugh.coaching-gmail.com/book-a-conversation" target="_blank" rel="noopener noreferrer" aria-label="Book a conversation (opens in a new tab)">Book a conversation</a>
 </nav>
 </header>
 
@@ -283,7 +283,14 @@
                 <label><input type="checkbox" name="interest" value="Other"><span>Other</span></label>
               </div></fieldset>
               <label for="contact-message">Message</label><textarea id="contact-message" name="message" rows="2" required></textarea>
+              <div class="contact-submit-row">
+              <div class="contact-newsletter-optin">
+                <label><input type="checkbox" name="newsletter_consent" value="Yes" aria-describedby="contact-newsletter-note"><span>Yes, I’d like to receive Joe’s newsletter.</span></label>
+                <p id="contact-newsletter-note">Unsubscribe at any time. <a href="../privacy-policy/index.html">Privacy Policy</a></p>
+                <noscript><p>This choice is included with your message. To complete signup without JavaScript, please use the <a href="#newsletter-title">newsletter form below</a>.</p></noscript>
+              </div>
               <button type="submit" class="contact-action"><span>Send Message</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></button>
+              </div>
               <p class="contact-status" role="status"></p>
             </form>
             </details>
@@ -299,6 +306,8 @@
 </aside>
 
 </main>    
+<section class="newsletter-editorial" aria-labelledby="newsletter-title"><div><h2 id="newsletter-title">A little food for thought.</h2><p class="newsletter-description">I share stories, thoughts and reflections on leadership, life<br class="desktop-copy-break"> and a few things I've learned along the way.</p><p class="newsletter-description newsletter-invitation">Sign up to receive my latest posts and updates by email.</p></div><form action="https://app.kit.com/forms/10230985/subscriptions" class="seva-form formkit-form" aria-labelledby="newsletter-title" method="post" data-sv-form="10230985" data-uid="e637015187" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Thanks for signing up. Check your email to confirm you'd like to receive regular emails from me. &quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}"><label for="newsletter-email">Email address</label><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert" role="alert"></ul><div class="input-row formkit-fields" data-element="fields"><input class="formkit-input" name="email_address" id="newsletter-email" type="email" autocomplete="email" required aria-describedby="newsletter-note"><button type="submit" class="formkit-submit" data-element="submit"><span>Subscribe</span><span class="newsletter-loading">Sending…</span></button></div><div class="signup-details"><p id="newsletter-note">Unsubscribe at any time.</p><a href="../privacy-policy/index.html">Privacy Policy</a></div><a class="credit" href="https://kit.com">Built with Kit</a></form></section>
+<script src="https://f.convertkit.com/ckjs/ck.5.js" defer></script>
 <footer class="global-footer" id="footer">
 <div class="footer-layout">
 <a class="global-footer-brand" href="../index.html" aria-label="Só Coaching — Joe McHugh — home"><img class="footer-logo" src="../homepage/assets/so-coaching-logo.svg" width="1148" height="728" alt="Só Coaching" loading="lazy" decoding="async"></a>

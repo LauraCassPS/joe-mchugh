@@ -1,48 +1,25 @@
-# Joe McHugh Coaching
+# Joe McHugh website
 
-Current static Home, About, One-to-One and Team Coaching pages.
+- **Current website:** [Homepage](homepage/index.html) , [About Joe](about/index.html) , [One-to-One](one-to-one/index.html) and [Team Coaching](team-coaching/index.html).
+- **Photos:** `photography/`; homepage originals are in `photography/Home photos `.
+- **Earlier designs:** [Design archive](Design%20archive/) contains all earlier studies, wireframes and newspaper layouts. These are retained for reference.
+- **Brand:** the brand board and brand overview remain in this folder.
+- **Shared assets:** `assets/` supports archived designs; `homepage/assets/` supports the current website. Keep both.
+- **Reference:** `reference/` contains historical notes, previews and recovery ZIPs.
+- **Scripts:** `scripts/preview-site.py` previews the current site; `scripts/validate-about.py` checks it against the retained About wireframe in Design archive.
 
-- Home: `index.html`
-- About: `about/index.html`
-- Home styles, scripts and shared assets: `homepage/`
-- About-specific assets and styles: `about/`
+To browse all designs locally, run `python3 -m http.server 8765` from this folder, then visit http://localhost:8765/. The dedicated preview script serves only the current website.
 
-## Preview
+Archived on 9 November 2026. No design work was deleted. Original edited files and the move list are saved in `reference/design-archive-recovery-2026-11-09.zip`.
 
-Run `python3 -m http.server 8000 --bind 127.0.0.1` from this folder and open
-http://127.0.0.1:8000/. The pages also work as ordinary static files.
+One-to-One now has a separate production candidate. The approved wireframe and colour study remain in `one-to-one-wireframe/`. See [production checks and launch requirements](one-to-one/README.md). Build styles with `npm run build:css`; validate all three pages with `npm run check`.
 
-## Editing
+Team Coaching is built from the approved colour preview. See `team-coaching/README.md` and `audits/team-coaching-build-20261114.md`. Run `npm run check:team` for its scoped checks.
 
-Edit the HTML and the readable CSS source files. After CSS edits, run `npm ci`
-once, then `npm run build:css` to regenerate both `site.min.css` files. Node is
-only needed for development; hosting needs no build command. Run `npm run check`
-to check links, responsive assets and draft-state invariants.
+Book is now an integrated candidate at [Book](book/index.html), with connected navigation and a separate Delivery & Returns page. See [combined build review](audits/book-integration-20261120.md). Run `npm run check:book`. Checkout and final content remain pending; nothing published.
 
-## Draft state
+## Newsletter and contact update — 23 November 2026
 
-The design, palette and approved copy are retained. All four pages are connected through the shared navigation.
-The shared contact forms submit to Formspree. Friday Corner displays the SociableKIT LinkedIn widget, with its free-plan credit. Calendar booking and homepage testimonials remain unfinished. Form delivery still needs an end-to-end inbox check.
+Centred headers include equal-width newsletter and booking actions. Every existing page has the painted Kit newsletter panel above the footer. Four contact forms include an optional, unticked newsletter checkbox; only the email address is sent to Kit after a successful enquiry. Enquiry and signup failures are reported separately. The send button sits beside the opt-in where space permits. Public contact details use joe@socoaching.ie, including Privacy, Cookie, Ethics and Delivery & Returns pages.
 
-All pages retain noindex while unfinished. No production domain, canonical URL,
-social image has been invented. Confirm those at launch, then
-add the final sitemap/robots policy and remove noindex. Noindex is not privacy
-or access control. The repository and any configured deployment retain their
-existing access settings.
-
-Hosting can serve the repository root directly. GitHub Pages, if chosen, can
-publish `main` from `/ (root)` without a Node build. Existing external hosting
-can likewise use the root and the committed CSS output.
-
-Original photographs, unused exports, local audit screenshots, internal notes
-and design archives are not included. The old wireframe is recoverable from
-Git history. Automated accessibility checks passed at desktop/mobile widths;
-manual photo-contrast, zoom and assistive-technology review remain launch checks.
-
-Team Coaching: `team-coaching/index.html`. Includes the approved compact diagram, voice divider and paired pro bono / Irish saying layout.
-
-Team Coaching review update, 16 November 2026: office hero photograph, softer photo treatments, compact working section and outdoor retreat section with a pending-permission photo placeholder. Six FAQs are present with the updated client-supplied answers for confidentiality, participation and workshop timing. Calendar integration remains pending; the shared contact form is connected to Formspree.
-
-Code of Ethics: `code-of-ethics/index.html`. Includes the December 2025 PDF hosted with the site and same-tab footer links. Statement remains draft pending Joe’s confirmation of practice and complaints arrangements.
-
-Privacy and Cookie Policies: `privacy-policy/index.html` and `cookie-policy/index.html`. Supplied copy dated 18 November 2026, using the Code of Ethics layout. All three footer policy links open in the same tab.
+Run `node --test scripts/test-contact.cjs` and `node scripts/test-contact-newsletter.cjs` for mocked submission checks. Live inbox delivery, Kit sender authentication/confirmation settings, and Kit cookie-consent behaviour remain to be verified. Existing book extract and checkout placeholders and noindex remain unchanged.

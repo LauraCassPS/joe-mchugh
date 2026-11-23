@@ -51,3 +51,18 @@
 .contact-block .contact-confirmation p{font:400 16px/1.75 var(--body,Libre,Georgia,serif);max-width:48ch;margin:0}
 .contact-block .contact-confirmation .contact-signature{margin-top:18px;color:var(--contact-blue)}
 .contact-block .contact-confirmation:focus-visible{outline:2px solid var(--contact-blue);outline-offset:5px}
+
+/* Optional newsletter choice stays separate from enquiry interests. */
+.contact-block .contact-newsletter-optin{margin-top:18px}
+.contact-block .contact-newsletter-optin label{display:flex;align-items:flex-start;gap:10px;min-height:32px;margin:0;font-weight:400;cursor:pointer}
+.contact-block .contact-newsletter-optin input{appearance:auto;width:18px;height:18px;margin:2px 0 0;flex-shrink:0;accent-color:var(--contact-blue)}
+.contact-block .contact-newsletter-optin p{margin:2px 0 0 28px;font:400 13px/1.6 var(--label,Source,Arial,sans-serif)}
+.contact-block .contact-newsletter-optin a,.contact-block .newsletter-result a{color:var(--contact-blue);text-decoration:underline;text-underline-offset:3px}
+.contact-block .contact-confirmation .newsletter-result{margin-top:16px;font:400 14px/1.6 var(--label,Source,Arial,sans-serif)}
+
+/* Consent and message action share one compact row when space allows. */
+.contact-block .contact-submit-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+.contact-block .contact-submit-row .contact-newsletter-optin{flex:1;min-width:0;margin-top:0}
+.contact-block .contact-submit-row .contact-action{flex:0 0 auto;width:auto;max-width:none;min-height:48px;margin:0;padding:12px 14px;gap:12px;font-size:12px;letter-spacing:.04em}
+.contact-block .contact-submit-row .contact-action svg{width:20px;height:20px}
+@media(max-width:1100px) and (min-width:761px), (max-width:520px){.contact-block .contact-submit-row{flex-wrap:wrap}.contact-block .contact-submit-row .contact-newsletter-optin{flex-basis:100%}.contact-block .contact-submit-row .contact-action{margin-left:auto}}

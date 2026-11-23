@@ -2,3 +2,14 @@
 .masthead .name{width:fit-content;max-width:100%;margin:0 auto;padding:16px 0 20px;line-height:0}
 .masthead .header-logo{display:block;width:375px;max-width:100%;height:auto}
 @media(max-width:700px){.masthead .name{padding:14px 0 18px}.masthead .header-logo{width:300px}}
+
+/* Homepage header option B: centred logo and equally sized actions. */
+.masthead.masthead-newsletter nav{gap:0;justify-content:center}
+.masthead.masthead-newsletter nav .newsletter-nav,.masthead.masthead-newsletter nav .book{box-sizing:border-box;flex:0 0 192px;width:192px;min-height:46px;margin-left:12px;padding:10px 12px;justify-content:center;text-align:center;font:600 14px/1.4 var(--label);letter-spacing:.02em;text-transform:none;border:1px solid var(--blue)}
+.masthead.masthead-newsletter nav .newsletter-nav{background:transparent;color:var(--blue)}
+.masthead.masthead-newsletter nav .newsletter-nav::before,.masthead.masthead-newsletter nav .book::before{display:none}
+.masthead.masthead-newsletter nav .newsletter-nav:hover{background:var(--sand)}
+@media(max-width:1100px){.masthead.masthead-newsletter nav{gap:8px 0}.masthead.masthead-newsletter nav>a:not(.newsletter-nav):not(.book){padding-inline:16px}}
+@media(max-width:700px){.masthead.masthead-newsletter nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}.masthead.masthead-newsletter nav>a{width:100%;margin:0;padding:8px;min-width:0}.masthead.masthead-newsletter nav>a::before{display:none}.masthead.masthead-newsletter nav .newsletter-nav,.masthead.masthead-newsletter nav .book{width:100%;margin:0;min-height:52px;padding:10px 8px}}
+
+.masthead.masthead-newsletter nav .book{background:var(--blue);color:var(--paper)}

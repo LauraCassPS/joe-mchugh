@@ -13,10 +13,15 @@ class Page(HTMLParser):
   if 'id' in a:assert a['id'] not in self.ids;self.ids.add(a['id'])
   if t not in VOID:self.stack.append(t)
  def handle_endtag(self,t):assert self.stack.pop()==t,(self.path,t)
-pages={p:Page(p) for p in [ROOT/'index.html',ROOT/'about/index.html',ROOT/'one-to-one/index.html',ROOT/'team-coaching/index.html',ROOT/'privacy-policy/index.html',ROOT/'cookie-policy/index.html',ROOT/'code-of-ethics/index.html']}
+pages={p:Page(p) for p in [ROOT/'index.html',ROOT/'about/index.html',ROOT/'one-to-one/index.html',ROOT/'team-coaching/index.html',ROOT/'privacy-policy/index.html',ROOT/'cookie-policy/index.html',ROOT/'code-of-ethics/index.html',ROOT/'book/index.html',ROOT/'book/delivery-returns.html']}
 for path,page in pages.items():
  assert sum(t=='h1' for t,a in page.nodes)==1
  assert sum(t=='main' for t,a in page.nodes)==1
+ assert sum(t=='form' and a.get('data-sv-form')=='10230985' for t,a in page.nodes)==1
+ assert any(a.get('class')=='newsletter-nav' and a.get('href')=='#newsletter-title' for t,a in page.nodes)
+ assert 'joemchugh.coaching@gmail.com' not in path.read_text()
+ for t,a in page.nodes:
+  if a.get('name')=='newsletter_consent':assert 'required' not in a and 'checked' not in a
  previous=0
  for t,a in page.nodes:
   if re.fullmatch('h[1-6]',t):level=int(t[1]);assert level<=previous+1;previous=level
@@ -42,3 +47,4 @@ for path,page in pages.items():
 for path in [p for folder in ('homepage','about','one-to-one','team-coaching') for p in (ROOT/folder).glob('*.css')]:
  for url in re.findall(r'url\([\'\"]?([^\'\")]+)',path.read_text()):assert (path.parent/url).resolve().exists(),(path,url)
 print('PASS: all source and compiled CSS resources exist.')
+
