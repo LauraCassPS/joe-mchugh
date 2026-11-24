@@ -5,45 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Book checkout | Só Coaching</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #f3eee2; color: #233e43; font: 1rem/1.5 system-ui, sans-serif; }
-    main { max-width: 58rem; margin: auto; padding: 1.5rem clamp(1rem, 4vw, 3rem); }
-    h1 { font: 2rem/1.15 Georgia, serif; margin: 1.5rem 0 .5rem; }
-    a { color: inherit; }
-    button { padding: .75rem 1.5rem; font: inherit; cursor: pointer; }
-    #delivery { max-width: 34rem; }
-    .summary { font-size: 1.15rem; font-weight: 600; }
-    select { padding: .55rem; font: inherit; }
-    button { background: #294b51; color: white; border: 0; border-radius: .25rem; }
-    button:disabled { opacity: .65; }
-    h2 { font-size: 1.25rem; }
-    :focus-visible { outline: 3px solid #295e77; outline-offset: 3px; }
-  </style>
+  <link rel="stylesheet" href="checkout.css">
   <script defer src="https://js.stripe.com/clover/stripe.js"></script>
   <script defer src="checkout.js"></script>
 </head>
 <body>
+  <header class="mast">
+    <img src="../homepage/assets/logos/socoaching-header.webp" alt="Só Coaching, Joe McHugh" width="158" height="64">
+    <span>Test checkout</span>
+  </header>
   <main>
-    <a href="index.html#order">Back to the book</a>
-    <h1>Beidh Tú Alright</h1>
-    <p>Test checkout · €20 per signed copy. Postage is charged once for one or two copies.</p>
-    <p id="checkout-status" role="status" tabindex="-1">Opening secure checkout…</p>
-    <noscript>Enable JavaScript to use the secure payment form.</noscript>
-    <section id="delivery" hidden>
-      <label for="quantity">Signed copies</label>
-      <select id="quantity"><option value="1">1</option><option value="2">2</option></select>
-      <h2>Delivery address</h2>
-      <div id="address"></div>
-      <p class="summary" id="total" aria-live="polite"></p>
-      <button id="continue" type="button">Continue to payment</button>
-    </section>
-    <section id="payment" hidden>
-      <button type="button" id="edit">Edit delivery address or quantity</button>
-      <p id="shipping-summary"></p>
-      <div id="checkout"></div>
-    </section>
-    <button id="retry" type="button" hidden>Try again</button>
+    <a class="back" href="index.html#order">Back to the book</a>
+    <div class="spread">
+      <section class="order" aria-labelledby="book-title">
+        <div class="product">
+          <img class="cover" src="../about/assets/beidh-tu-alright.jpg" alt="Green and gold cover of Beidh Tú Alright">
+          <div>
+            <h1 id="book-title" lang="ga">Beidh Tú Alright</h1>
+            <p class="subtitle">An Irish Language Journey</p>
+            <p class="edition">Joe McHugh · Signed paperback</p>
+          </div>
+        </div>
+        <div class="copies"><label for="quantity">Quantity</label>
+          <select id="quantity"><option value="1">1 copy</option><option value="2">2 copies</option></select>
+        </div>
+        <dl class="summary" aria-live="polite" aria-atomic="true">
+          <div><dt>Books</dt><dd id="subtotal">€20.00</dd></div>
+          <div><dt>Postage</dt><dd id="postage">—</dd></div>
+          <div class="total"><dt>Total <small>EUR</small></dt><dd id="total">—</dd></div>
+        </dl>
+        <p class="note">One postage charge covers up to two copies.</p>
+      </section>
+      <div class="form-area">
+        <p id="checkout-status" role="status" tabindex="-1">Opening secure checkout…</p>
+        <noscript>Enable JavaScript to use the secure payment form.</noscript>
+        <section id="delivery" hidden>
+          <h2>Delivery address</h2>
+          <p class="intro">Where should Joe send your signed copy?</p>
+          <div id="address"></div>
+          <button id="continue" type="button">Continue to payment</button>
+        </section>
+        <section id="payment" hidden>
+          <h2>Payment</h2>
+          <p id="shipping-summary"></p>
+          <button type="button" id="edit" class="secondary">Edit address or quantity</button>
+          <div id="checkout"></div>
+        </section>
+        <button id="retry" type="button" hidden>Try again</button>
+      </div>
+    </div>
   </main>
 </body>
 </html>

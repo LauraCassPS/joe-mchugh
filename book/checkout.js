@@ -13,7 +13,12 @@ async function startCheckout() {
   if (!response.ok) throw new Error();
   const { publishableKey, postage } = await response.json();
   const stripe = window.Stripe(publishableKey);
-  const address = stripe.elements().create('address', {
+  const appearance = {
+    variables: { colorPrimary: '#284d53', colorText: '#233e43', colorBackground: '#ffffff', borderRadius: '3px', fontSizeBase: '16px' },
+    rules: { '.Input': { border: '1px solid #939b94', boxShadow: 'none' }, '.Label': { fontWeight: '500' } },
+  };
+  const address = stripe.elements({ appearance }).create('address', {
+    autocomplete: { mode: 'disabled' },
     mode: 'shipping',
     allowedCountries: Object.keys(postage),
     defaultValues: { address: { country: 'IE' } },
@@ -22,8 +27,9 @@ async function startCheckout() {
   function showTotal() {
     const subtotal = Number(quantity.value) * 2000;
     const rate = postage[country];
-    element('total').textContent = rate === undefined ? 'Choose a delivery country to see postage.' :
-      'Books ' + euro(subtotal) + ' + postage ' + euro(rate) + ' = ' + euro(subtotal + rate);
+    element('subtotal').textContent = euro(subtotal);
+    element('postage').textContent = rate === undefined ? 'Choose a country' : euro(rate);
+    element('total').textContent = rate === undefined ? '—' : euro(subtotal + rate);
   }
   quantity.addEventListener('change', showTotal);
   address.on('change', event => {
@@ -41,6 +47,7 @@ async function startCheckout() {
 
   element('continue').addEventListener('click', async () => {
     element('continue').disabled = true;
+    quantity.disabled = true;
     try {
       const { complete, value } = await address.getValue();
       if (!complete) {
@@ -63,6 +70,7 @@ async function startCheckout() {
         onComplete() {
           checkout.destroy();
           element('payment').hidden = true;
+          quantity.disabled = true;
           statusMessage.textContent = 'Test payment complete. Your order is recorded in the Só Coaching Stripe sandbox.';
           statusMessage.focus();
         },
@@ -81,6 +89,7 @@ async function startCheckout() {
       statusMessage.textContent = 'The payment form could not open. Please try again.';
       statusMessage.focus();
     } finally {
+      quantity.disabled = false;
       element('continue').disabled = false;
     }
   });
