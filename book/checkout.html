@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-IE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Book checkout | Só Coaching</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f3eee2; color: #233e43; font: 1rem/1.5 system-ui, sans-serif; }
+    main { max-width: 68rem; margin: auto; padding: 1.5rem clamp(1rem, 4vw, 3rem); }
+    h1 { font: 2rem/1.15 Georgia, serif; margin: 1.5rem 0 .5rem; }
+    a { color: inherit; }
+    button { padding: .75rem 1.5rem; font: inherit; cursor: pointer; }
+    :focus-visible { outline: 3px solid #295e77; outline-offset: 3px; }
+  </style>
+  <script defer src="https://js.stripe.com/clover/stripe.js"></script>
+  <script defer src="checkout.js"></script>
+</head>
+<body>
+  <main>
+    <a href="index.html#order">Back to the book</a>
+    <h1>Beidh Tú Alright</h1>
+    <p>Test checkout · €20 per signed copy. Postage is charged once for one or two copies.</p>
+    <p id="checkout-status" role="status" tabindex="-1">Opening secure checkout…</p>
+    <noscript>Enable JavaScript to use the secure payment form.</noscript>
+    <div id="checkout"></div>
+    <button id="retry" type="button" hidden>Try again</button>
+  </main>
+</body>
+</html>
