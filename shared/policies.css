@@ -3,3 +3,14 @@
 .policy-article .ethics-opening h1{margin-bottom:20px}
 .policy-article .commitment a{color:var(--blue);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
 .policy-article .commitment a:hover{color:var(--ink)}
+
+/* Delivery & Returns shares the supporting pages' reading rhythm. */
+main.policy-main{padding-top:0}
+.book-legal.ethics-article{max-width:780px;margin:64px auto 80px}
+.book-legal.ethics-article p,.book-legal.ethics-article li{font:inherit}
+.book-legal.ethics-article p+p{margin-top:18px}
+.book-legal.ethics-article .ethics-opening h1{margin-top:0}
+.book-legal.ethics-article>.text-link{margin-bottom:20px}
+.book-legal.ethics-article>.commitment{border:0;padding-top:0;margin-top:38px}
+.book-legal.ethics-article .cancellation-template p{font:400 16px/1.8 var(--label)}
+@media(max-width:600px){.book-legal.ethics-article{margin:38px auto 52px}.book-legal.ethics-article>.commitment{margin-top:32px}}

@@ -63,7 +63,7 @@
 
 .circle-photo-copy .circle-ending{font:400 26px/1.3 Old;text-align:left;text-wrap:pretty;margin:24px 0 0;padding:20px 0 0;border-top:1px solid #999;max-width:none}
 
-.voice-version{container-type:inline-size;--ink:#30312c;--blue:#345961;--wash:#dce4e2;background:#f3eee2;color:var(--ink)}
+.voice-version{container-type:inline-size;--ink:#30312c;--blue:#345961;--wash:#e6e3d8;background:#f3eee2;color:var(--ink)}
 .voice-top{display:grid;grid-template-columns:52% 48%;align-items:center;padding:42px 32px 40px;gap:0}
 .voice-version blockquote{margin:0;padding-right:26px}
 .voice-version blockquote p{font:400 clamp(20px,2.2cqw,28px)/1.65 Old;margin:0;text-wrap:initial}
@@ -213,7 +213,7 @@
 
 /* Source: colour.css */
 /* Approved layouts, established Home / About / One-to-One palette. */
-:root{--paper:#f3eee2;--ink:#30312c;--blue:#345961;--green:#62694b;--rule:#8e9183;--sand:#e6e3d8;--wash:#dce4e2}
+:root{--paper:#f3eee2;--ink:#30312c;--blue:#345961;--green:#62694b;--rule:#8e9183;--sand:#e6e3d8;--wash:#e6e3d8}
 .section{border-color:var(--ink)}
 .editorial-photo{position:relative;overflow:hidden;isolation:isolate;background:var(--sand);min-width:0}
 .editorial-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.07) contrast(.94)}
@@ -230,7 +230,7 @@
 .seven-circles .circle-centre{background:var(--blue);color:var(--paper);font-weight:400}
 .seven-lines g{stroke:var(--rule)}
 .circle-photo-copy .circle-ending{color:var(--blue);border-color:var(--rule)}
-.hearing .voice-version{--ink:#30312c;--blue:#345961;--wash:#dce4e2;color:var(--ink);background:transparent}
+.hearing .voice-version{--ink:#30312c;--blue:#345961;--wash:#e6e3d8;color:var(--ink);background:transparent}
 .hearing .role-statement{border-color:var(--blue)}
 .purpose h2,.next h2,.working h2,.faq h2{color:var(--blue)}
 .purpose .purpose-photo img{object-position:50% 40%}
@@ -263,7 +263,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 
 /* Source: brand-refinement.css */
 /* Exact shared print materials from About and One-to-One. */
-:root{--paper-texture:url('../homepage/assets/brand-board-paper-web.jpg');--photo-print-filter:saturate(.78) sepia(.09) contrast(.94);--photo-paper-opacity:.16;--photo-paper-scale:320px;--blue-wash:#dce4e2;--olive-wash:#e5e7de}
+:root{--paper-texture:url('../homepage/assets/brand-board-paper-web.jpg');--photo-print-filter:saturate(.78) sepia(.09) contrast(.94);--photo-paper-opacity:.16;--photo-paper-scale:320px;--blue-wash:#e6e3d8;--olive-wash:#e5e7de}
 .sheet{background-image:linear-gradient(#f3eee2ed,#f3eee2ed),var(--paper-texture)}
 .masthead .name{color:var(--ink)}
 .editorial-photo img,.helicopter-section .colour-photo img,.working-photo img{filter:var(--photo-print-filter)}
@@ -274,7 +274,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 .seven-circles li{background:var(--blue-wash);border:1.5px solid var(--blue);transition:background-color .18s ease}
 .seven-circles .circle-centre{border-width:1.5px}
 .seven-lines g{stroke:#647e80;stroke-width:1.5}
-@media(hover:hover){.seven-circles li:hover{background:var(--olive-wash)}}
+@media(hover:hover){.seven-circles li:hover{background:var(--sand)}}
 /* Photo retains detail: type changes colour exactly at the image boundary. */
 .purpose .purpose-photo:after{background:rgba(0,0,0,.36)}
 .purpose .purpose-photo img{object-position:50% 50%}
@@ -432,7 +432,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 
 .site-footer .footer-book:hover{color:var(--paper)}
 
-/* Approved body and FAQ reading size, 16 November 2026. */
+/* Approved 16px body and FAQ reading size, 24 November 2026. */
 .intro-columns p:not(.hero-opportunity),
 .helicopter-section .c-body p,
 .hearing .photo-body p,
@@ -442,7 +442,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 .outdoors p,
 .accessible>p,
 .faq .answer p,
-.conversation-options p{font-size:.9375rem;line-height:1.5}
+.conversation-options p{font-size:1rem;line-height:1.5}
 
 /* Photographer credits sit beneath the existing image crop. */
 .credited-photo.credited-photo{position:relative;overflow:visible;margin-bottom:28px}
@@ -525,3 +525,12 @@ footer{border-color:var(--ink);color:var(--blue)}
 .testimonial-slider .letter-copy{border-left:0;padding-left:0}
 .testimonial-slider .slider-controls{justify-content:flex-start}
 }
+
+
+/* Approved full-width PAUSE panel beneath the introduction. */
+.pause-statement{font:400 clamp(24px,2.75vw,35px)/1.45 Old;text-align:center;text-wrap:balance;margin:36px 0 0;padding:28px 5%;background:var(--sand);color:var(--blue);border-block:3px double var(--blue)}
+.pause-statement strong{font-weight:700}
+@media(max-width:700px){.pause-statement{font-size:25px;padding:26px 22px;line-height:1.4}}
+
+/* Keep the tablet title within its column beside the photograph. */
+@media(min-width:651px) and (max-width:1024px){.opening h1{font-size:6.4cqw}}

@@ -66,3 +66,10 @@
 .contact-block .contact-submit-row .contact-action{flex:0 0 auto;width:auto;max-width:none;min-height:48px;margin:0;padding:12px 14px;gap:12px;font-size:12px;letter-spacing:.04em}
 .contact-block .contact-submit-row .contact-action svg{width:20px;height:20px}
 @media(max-width:1100px) and (min-width:761px), (max-width:520px){.contact-block .contact-submit-row{flex-wrap:wrap}.contact-block .contact-submit-row .contact-newsletter-optin{flex-basis:100%}.contact-block .contact-submit-row .contact-action{margin-left:auto}}
+
+/* Give narrow touch-screen forms full-width identity fields. */
+@media(max-width:1024px){
+.contact-block .contact-form{container-type:inline-size}
+.contact-block input:not([type=checkbox]){min-height:44px}
+@container(max-width:440px){.contact-block .identity-fields{grid-template-columns:1fr;gap:12px}}
+}

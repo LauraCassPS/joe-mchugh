@@ -22,3 +22,9 @@
 .global-footer .global-footer-brand{width:220px;max-width:100%;line-height:0}
 .global-footer .global-footer-brand .footer-logo{position:static;display:block;width:100%;max-width:100%;height:auto}
 @media(max-width:700px){.global-footer .global-footer-brand{width:200px}}
+
+/* Revised logo balanced with credentials and navigation. */
+.global-footer .global-footer-brand-new{width:160px;height:auto;overflow:visible}
+.global-footer .global-footer-brand-new .footer-logo{position:static;display:block;width:100%;max-width:100%;height:auto}
+
+.global-footer .global-footer-note{text-align:center;margin:12px 0 14px}

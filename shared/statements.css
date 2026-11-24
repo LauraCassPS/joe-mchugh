@@ -1,0 +1,3 @@
+/* One treatment for editorial takeaway panels across the five main pages. */
+main .statement-panel.statement-panel{background:#e6e3d8;border:0;border-block:3px double var(--blue);box-shadow:none}
+@media(forced-colors:active){main .statement-panel.statement-panel{background:Canvas;border-block-color:CanvasText}}

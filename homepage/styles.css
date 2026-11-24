@@ -867,3 +867,45 @@ a[aria-disabled=true] {
 
 /* Live posts follow the Friday Corner introduction and site CTA. */
 .friday-live-widget{margin-top:24px;min-width:0;max-width:100%}
+
+
+/* Approved keynote editorial layout, option C. */
+.keynote-invitation{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr) 210px;gap:36px;align-items:center;border-top:0;border-bottom:1px solid var(--rule);padding:0 0 36px;background:var(--paper)}
+.keynote-invitation>*{min-width:0}
+.keynote-section-title{grid-column:1/-1;grid-row:1;align-self:start}
+.keynote-invitation .keynote-section-title h2{font:400 clamp(28px,2.8vw,40px)/1.2 var(--display);text-align:center;margin:0;padding:16px 0;border-top:4px double var(--ink);border-bottom:1px solid var(--rule);letter-spacing:-.02em;color:var(--blue);max-width:none;text-wrap:balance}
+.keynote-copy{grid-column:1;grid-row:2}
+.keynote-copy h3{font:400 38px/1.08 var(--display);letter-spacing:-.025em;color:var(--blue);max-width:12ch;margin:0 0 18px;text-wrap:balance}
+.keynote-invitation .keynote-copy>p{font-size:14px;line-height:1.8;max-width:48ch}
+.keynote-invitation .coaching-cta{width:fit-content;margin-top:18px;min-height:44px;font-size:16px}
+.keynote-film{grid-column:3;grid-row:2;margin:0;max-width:100%;justify-self:end;width:210px}
+.keynote-film-frame{padding:8px;background:#fff}
+.keynote-film video{display:block;width:100%;height:auto;aspect-ratio:478/850;background:var(--ink);object-fit:contain}
+.keynote-film figcaption{margin-top:10px;font:400 13px/1.5 var(--label);color:var(--ink)}
+.keynote-film figcaption a{color:var(--blue);text-underline-offset:3px}
+.keynote-film a:focus-visible,.keynote-film video:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.keynote-invitation .keynote-testimonial{grid-column:2;grid-row:2;border-top:0;border-left:1px solid var(--rule);padding:0 0 0 28px;display:block;position:static}
+.keynote-testimonial .testimonial-quotation{display:none}
+.keynote-testimonial blockquote{font:400 24px/1.35 var(--display);letter-spacing:-.015em;max-width:40ch;color:var(--ink)}
+.keynote-testimonial blockquote::before{content:"“"}
+.keynote-testimonial blockquote::after{content:"”"}
+.keynote-invitation .keynote-attribution{margin-top:16px;font-size:13px;line-height:1.5}
+.keynote-attribution strong{font-size:14px;margin-bottom:2px}
+@media(max-width:760px){
+.keynote-invitation{grid-template-columns:1fr;gap:28px;padding:0 0 36px}
+.keynote-invitation .keynote-section-title{grid-column:1;grid-row:1}
+.keynote-invitation .keynote-section-title h2{font-size:28px}
+.keynote-copy h3{font-size:36px}
+.keynote-invitation .keynote-copy{grid-column:1;grid-row:2}
+.keynote-invitation .keynote-testimonial{grid-column:1;grid-row:3;border-left:0;border-top:1px solid var(--rule);padding:24px 0 0}
+.keynote-invitation .keynote-film{grid-column:1;grid-row:4;justify-self:center}
+}
+
+/* Tablet keynote: copy and film above a full-width testimonial. */
+@media(min-width:761px) and (max-width:1024px){
+.keynote-invitation{grid-template-columns:minmax(0,1fr) 210px;gap:28px}
+.keynote-invitation .keynote-copy{grid-column:1;grid-row:2}
+.keynote-invitation .keynote-film{grid-column:2;grid-row:2}
+.keynote-invitation .keynote-testimonial{grid-column:1/-1;grid-row:3;border-left:0;border-top:1px solid var(--rule);padding:24px 0 0}
+.keynote-testimonial blockquote{max-width:none}
+}

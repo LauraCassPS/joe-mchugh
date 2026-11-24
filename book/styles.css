@@ -38,7 +38,7 @@ html{scroll-padding-top:24px}main{padding-top:34px}main p,main li{font:400 1rem/
 
 /* Brand refinements: shared paper, Atlantic blue accents and olive interactions. */
 .blue-text{color:var(--blue)}.story-response p+p{color:var(--ink)}
-main .book-reflection{background:#dbe4e2;color:var(--blue);border-block:4px double var(--blue);padding-block:30px}
+main .book-reflection{background:#e6e3d8;color:var(--blue);border-block:4px double var(--blue);padding-block:30px}
 .launch-prefix{letter-spacing:normal;text-transform:none}
 .gallery-controls,.gallery-controls button{color:var(--blue)}.gallery-controls button{border-color:var(--blue)}.gallery-controls button:hover:not(:disabled){background:var(--blue);color:var(--paper)}
 .order-delivery .dispatch-note{border-top:1px solid var(--rule);padding-top:16px;margin-top:16px}.order-delivery .order-language{margin-top:0}

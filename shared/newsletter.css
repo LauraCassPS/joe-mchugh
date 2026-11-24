@@ -21,6 +21,6 @@
 .newsletter-editorial .formkit-alert{margin:0 0 12px;padding:12px;border:1px solid var(--paper);list-style:none;font:400 16px/1.5 var(--label);color:var(--paper)}
 .newsletter-editorial .formkit-alert:empty{display:none}
 @media(max-width:1000px){.newsletter-editorial{grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);gap:24px;padding:18px 12px}.newsletter-editorial h2{font-size:30px}.newsletter-editorial .newsletter-description{font-size:15px}.newsletter-editorial .newsletter-invitation{font-size:13px;white-space:normal}}
-@media(max-width:760px){.newsletter-editorial{grid-template-columns:1fr;gap:22px;border-width:18px;border-image-width:18px;padding:20px 12px}.newsletter-editorial h2{font-size:clamp(25px,5.9vw,36px);white-space:normal;margin-bottom:12px}.newsletter-editorial .newsletter-description{font-size:16px}.newsletter-editorial .newsletter-invitation{font-size:14px}.desktop-copy-break{display:none}}
+@media(max-width:1024px){.newsletter-editorial{grid-template-columns:1fr;gap:22px;border-width:18px;border-image-width:18px;padding:20px 12px}.newsletter-editorial h2{font-size:clamp(25px,5.9vw,36px);white-space:normal;margin-bottom:12px}.newsletter-editorial .newsletter-description{font-size:16px}.newsletter-editorial .newsletter-invitation{font-size:14px}.desktop-copy-break{display:none}}
 @media(forced-colors:active){.newsletter-editorial{border-image:none;border:2px solid CanvasText;background:Canvas;color:CanvasText}}
 
