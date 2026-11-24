@@ -12,7 +12,7 @@
 <body>
   <header class="mast">
     <img src="../homepage/assets/logos/socoaching-header.webp" alt="Só Coaching, Joe McHugh" width="158" height="64">
-    <span>Test checkout</span>
+    <span class="test-mode">Test checkout · No money is taken</span>
   </header>
   <main>
     <a class="back" href="index.html#order">Back to the book</a>
@@ -31,17 +31,21 @@
         </div>
         <dl class="summary" aria-live="polite" aria-atomic="true">
           <div><dt>Books</dt><dd id="subtotal">€20.00</dd></div>
-          <div><dt>Postage</dt><dd id="postage">—</dd></div>
+          <div><dt id="postage-label">Postage</dt><dd id="postage">—</dd></div>
           <div class="total"><dt>Total <small>EUR</small></dt><dd id="total">—</dd></div>
         </dl>
         <p class="note">One postage charge covers up to two copies.</p>
       </section>
       <div class="form-area">
+        <ol class="steps" aria-label="Checkout progress">
+          <li id="delivery-step" aria-current="step">Delivery</li>
+          <li id="payment-step">Payment</li>
+        </ol>
         <p id="checkout-status" role="status" tabindex="-1">Opening secure checkout…</p>
         <noscript>Enable JavaScript to use the secure payment form.</noscript>
         <section id="delivery" hidden>
           <h2>Delivery address</h2>
-          <p class="intro">Where should Joe send your signed copy?</p>
+          <p class="intro">Use the address where you’d like Joe to post your order.</p>
           <form id="address">
             <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="shipping name" required></div>
             <div class="field"><label for="country">Delivery country</label><select id="country" name="country" autocomplete="shipping country" required></select></div>
@@ -52,7 +56,8 @@
               <div class="field"><label for="state">County or region</label><input id="state" name="state" autocomplete="shipping address-level1"></div>
             </div>
             <div class="field"><label for="postal_code">Postal code</label><input id="postal_code" name="postal_code" autocomplete="shipping postal-code"></div>
-            <button id="continue" type="submit">Continue to payment</button>
+            <button id="continue" type="submit">Continue to payment <span id="button-total"></span></button>
+            <p class="payment-note">Stripe handles your card details. You can add a dedication and review your order before paying.</p>
           </form>
         </section>
         <section id="payment" hidden>
@@ -63,7 +68,22 @@
         </section>
         <button id="retry" type="button" hidden>Try again</button>
       </div>
+      <aside class="dispatch" aria-labelledby="dispatch-title">
+        <img src="assets/joe-signing-480.webp" alt="Joe signing the title page of a book" width="480" height="640">
+        <div>
+          <h2 id="dispatch-title">Signed by Joe.<br>Posted from Ireland.</h2>
+          <p>Orders are normally posted within three working days.</p>
+          <a href="delivery-returns.html" target="_blank" rel="noopener">Delivery &amp; returns<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+      </aside>
     </div>
   </main>
+  <footer class="checkout-footer">
+    <div>
+      <p>Questions about your order? <a href="mailto:joe@socoaching.ie">Email Joe</a></p>
+      <small>Joe McHugh, trading as Só Coaching</small>
+    </div>
+    <a href="../privacy-policy/index.html" target="_blank" rel="noopener">Privacy policy<span class="visually-hidden"> (opens in a new tab)</span></a>
+  </footer>
 </body>
 </html>

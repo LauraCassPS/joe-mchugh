@@ -6,6 +6,14 @@ const statusMessage = element('checkout-status');
 const euro = cents => '€' + (cents / 100).toFixed(2);
 let checkout;
 
+function showStep(step) {
+  for (const name of ['delivery', 'payment']) {
+    const item = element(name + '-step');
+    if (name === step) item.setAttribute('aria-current', 'step');
+    else item.removeAttribute('aria-current');
+  }
+}
+
 async function startCheckout() {
   if (!window.Stripe) throw new Error();
   const endpoint = '/api/book/checkout';
@@ -42,8 +50,10 @@ async function startCheckout() {
     const subtotal = Number(quantity.value) * 2000;
     const rate = postage[countrySelect.value];
     element('subtotal').textContent = euro(subtotal);
+    element('postage-label').textContent = 'Postage to ' + countryNames.of(countrySelect.value);
     element('postage').textContent = rate === undefined ? 'Choose a country' : euro(rate);
     element('total').textContent = rate === undefined ? '—' : euro(subtotal + rate);
+    element('button-total').textContent = rate === undefined ? '' : euro(subtotal + rate);
   }
   quantity.addEventListener('change', showTotal);
   countrySelect.addEventListener('change', () => {
@@ -87,6 +97,7 @@ async function startCheckout() {
         onComplete() {
           checkout.destroy();
           element('payment').hidden = true;
+          showStep(null);
           quantity.disabled = true;
           statusMessage.textContent = 'Test payment complete. Your order is recorded in the Só Coaching Stripe sandbox.';
           statusMessage.focus();
@@ -96,6 +107,7 @@ async function startCheckout() {
       element('shipping-summary').textContent = 'Deliver to ' +
         [value.name, destination.line1, destination.line2, destination.city, destination.state, destination.postal_code, countryNames.of(destination.country)].filter(Boolean).join(', ');
       element('payment').hidden = false;
+      showStep('payment');
       checkout.mount('#checkout');
       statusMessage.textContent = '';
       element('edit').focus();
@@ -103,6 +115,7 @@ async function startCheckout() {
       if (checkout) { checkout.destroy(); checkout = undefined; }
       element('payment').hidden = true;
       element('delivery').hidden = false;
+      showStep('delivery');
       statusMessage.textContent = 'The payment form could not open. Please try again.';
       statusMessage.focus();
     } finally {
@@ -115,6 +128,7 @@ async function startCheckout() {
     checkout = undefined;
     element('payment').hidden = true;
     element('delivery').hidden = false;
+    showStep('delivery');
     quantity.focus();
   });
 }
