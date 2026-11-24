@@ -42,7 +42,13 @@ async function stripe(env, path, fields) {
   if (!response.ok) {
     const error = await response.json();
     console.error('Book checkout', response.status, error.error?.code, error.error?.param, response.headers.get('request-id'));
-    throw new Error('Stripe request failed');
+    const failure = new Error('Stripe request failed');
+    failure.diagnostic = {
+      code: error.error?.code,
+      parameter: error.error?.param,
+      message: error.error?.message?.replace(/(?:sk|rk|pk|cs)_(?:test|live)_[^\s'"]+/gi, '[redacted]').slice(0, 500),
+    };
+    throw failure;
   }
   return response.json();
 }
@@ -112,7 +118,10 @@ export async function onRequestPost({ env, request }) {
     if (body?.action === 'start') return await createSession(env);
     if (body?.action === 'shipping') return await updatePostage(env, body);
     return reply({}, 400);
-  } catch {
-    return reply({ error: 'Checkout could not reach Stripe. Please try again.' }, 502);
+  } catch (error) {
+    return reply({
+      error: 'Checkout could not reach Stripe. Please try again.',
+      diagnostic: body?.action === 'start' ? error.diagnostic : undefined,
+    }, 502);
   }
 }
