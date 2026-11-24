@@ -879,7 +879,7 @@ a[aria-disabled=true] {
 .keynote-invitation .keynote-copy>p{font-size:14px;line-height:1.8;max-width:48ch}
 .keynote-invitation .coaching-cta{width:fit-content;margin-top:18px;min-height:44px;font-size:16px}
 .keynote-film{grid-column:3;grid-row:2;margin:0;max-width:100%;justify-self:end;width:210px}
-.keynote-film-frame{padding:8px;background:#fff}
+.keynote-film-frame{padding:0;background:transparent}
 .keynote-film video{display:block;width:100%;height:auto;aspect-ratio:478/850;background:var(--ink);object-fit:contain}
 .keynote-film figcaption{margin-top:10px;font:400 13px/1.5 var(--label);color:var(--ink)}
 .keynote-film figcaption a{color:var(--blue);text-underline-offset:3px}
