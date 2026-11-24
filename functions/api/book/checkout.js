@@ -30,30 +30,31 @@ function reply(body, status = 200) {
   return Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
-async function stripe(env, path, fields) {
-  const response = await fetch('https://api.stripe.com/v1/checkout/sessions' + path, {
-    method: fields ? 'POST' : 'GET',
-    headers: {
-      Authorization: 'Bearer ' + env.STRIPE_SECRET_KEY,
-      'Stripe-Version': '2025-09-30.clover',
-    },
-    body: fields ? new URLSearchParams(fields) : undefined,
-  });
-  if (!response.ok) {
-    const error = await response.json();
-    console.error('Book checkout', response.status, error.error?.code, error.error?.param, response.headers.get('request-id'));
-    const failure = new Error('Stripe request failed');
-    failure.diagnostic = {
-      code: error.error?.code,
-      parameter: error.error?.param,
-      message: error.error?.message?.replace(/(?:sk|rk|pk|cs)_(?:test|live)_[^\s'"]+/gi, '[redacted]').slice(0, 500),
-    };
-    throw failure;
-  }
-  return response.json();
+function configured(env) {
+  return env.STRIPE_SECRET_KEY?.startsWith('sk_test_') &&
+    env.STRIPE_PUBLISHABLE_KEY?.startsWith('pk_test_') && env.STRIPE_PRICE_ID;
 }
 
-async function createSession(env) {
+export function onRequestGet({ env }) {
+  if (!configured(env)) return reply({ error: 'Test checkout is unavailable.' }, 503);
+  return reply({
+    publishableKey: env.STRIPE_PUBLISHABLE_KEY,
+    postage: Object.fromEntries(Array.from(countries, country => [country, postage(country)])),
+  });
+}
+
+export async function onRequestPost({ env, request }) {
+  if (request.headers.get('Origin') !== new URL(request.url).origin) return reply({}, 403);
+  if (!configured(env)) return reply({ error: 'Test checkout is unavailable.' }, 503);
+  const body = await request.json().catch(() => null);
+  const { quantity, shipping } = body || {};
+  const address = shipping?.address;
+  if (![1, 2].includes(quantity) || !countries.has(address?.country) ||
+      typeof shipping.name !== 'string' || !shipping.name.trim() ||
+      typeof address.line1 !== 'string' || !address.line1.trim()) {
+    return reply({ error: 'Complete the delivery address before continuing.' }, 400);
+  }
+  // One session fixes the book quantity, delivery address and matching postage together.
   const fields = {
     mode: 'payment',
     ui_mode: 'embedded',
@@ -62,66 +63,34 @@ async function createSession(env) {
     'adaptive_pricing[enabled]': 'false',
     'payment_method_types[0]': 'card',
     'line_items[0][price]': env.STRIPE_PRICE_ID,
-    'line_items[0][quantity]': '1',
-    'line_items[0][adjustable_quantity][enabled]': 'true',
-    'line_items[0][adjustable_quantity][minimum]': '1',
-    'line_items[0][adjustable_quantity][maximum]': '2',
+    'line_items[0][quantity]': String(quantity),
     'custom_fields[0][key]': 'dedication',
     'custom_fields[0][label][type]': 'custom',
     'custom_fields[0][label][custom]': 'Dedication for your signed book(s)',
     'custom_fields[0][type]': 'text',
     'custom_fields[0][optional]': 'true',
-    'permissions[update_shipping_details]': 'server_only',
+    'payment_intent_data[shipping][name]': shipping.name,
     'metadata[order_type]': 'signed_book',
-  };
-  Array.from(countries).forEach((country, i) => {
-    fields['shipping_address_collection[allowed_countries][' + i + ']'] = country;
-  });
-  const session = await stripe(env, '', fields);
-  return reply({ publishableKey: env.STRIPE_PUBLISHABLE_KEY, clientSecret: session.client_secret });
-}
-
-async function updatePostage(env, body) {
-  const { sessionId, clientSecret, shippingDetails } = body;
-  const address = shippingDetails?.address;
-  if (typeof sessionId !== 'string' || !/^cs_test_[a-zA-Z0-9]+$/.test(sessionId) ||
-      typeof clientSecret !== 'string' || !countries.has(address?.country) ||
-      typeof shippingDetails.name !== 'string' || !shippingDetails.name.trim() ||
-      typeof address.line1 !== 'string' || !address.line1.trim()) {
-    return reply({ error: 'Enter a complete delivery address.' }, 400);
-  }
-  const path = '/' + sessionId;
-  const session = await stripe(env, path);
-  if (session.client_secret !== clientSecret || session.metadata?.order_type !== 'signed_book' || session.status !== 'open') {
-    return reply({ error: 'Reopen checkout to update your address.' }, 403);
-  }
-  // Persist the address and its matching rate in the same Stripe update.
-  const prefix = 'collected_information[shipping_details]';
-  const fields = {
-    [prefix + '[name]']: shippingDetails.name,
     ...shippingRate(postage(address.country), 'Book postage'),
   };
   for (const key of ['country', 'line1', 'line2', 'city', 'state', 'postal_code']) {
-    fields[prefix + '[address][' + key + ']'] = address[key] || '';
+    if (typeof address[key] === 'string' && address[key]) {
+      fields['payment_intent_data[shipping][address][' + key + ']'] = address[key];
+    }
   }
-  await stripe(env, path, fields);
-  return reply({ updated: true });
-}
-
-export async function onRequestPost({ env, request }) {
-  if (request.headers.get('Origin') !== new URL(request.url).origin) return reply({}, 403);
-  if (!env.STRIPE_SECRET_KEY?.startsWith('sk_test_') || !env.STRIPE_PUBLISHABLE_KEY?.startsWith('pk_test_') || !env.STRIPE_PRICE_ID) {
-    return reply({ error: 'Test checkout is unavailable.' }, 503);
+  const result = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+    method: 'POST',
+    headers: { Authorization: 'Bearer ' + env.STRIPE_SECRET_KEY, 'Stripe-Version': '2025-09-30.clover' },
+    body: new URLSearchParams(fields),
+  });
+  const session = await result.json();
+  if (!result.ok) {
+    console.error('Book checkout', result.status, session.error?.code, session.error?.param, result.headers.get('request-id'));
+    return reply({ error: 'Stripe could not open the payment form.', parameter: session.error?.param, code: session.error?.code }, 502);
   }
-  const body = await request.json().catch(() => null);
-  try {
-    if (body?.action === 'start') return await createSession(env);
-    if (body?.action === 'shipping') return await updatePostage(env, body);
-    return reply({}, 400);
-  } catch (error) {
-    return reply({
-      error: 'Checkout could not reach Stripe. Please try again.',
-      diagnostic: body?.action === 'start' ? error.diagnostic : undefined,
-    }, 502);
+  if (session.livemode || session.currency !== 'eur' ||
+      session.amount_total !== quantity * 2000 + postage(address.country)) {
+    return reply({ error: 'The Stripe price differs from the displayed total.' }, 409);
   }
+  return reply({ clientSecret: session.client_secret });
 }
