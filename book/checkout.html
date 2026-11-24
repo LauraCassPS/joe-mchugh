@@ -42,8 +42,18 @@
         <section id="delivery" hidden>
           <h2>Delivery address</h2>
           <p class="intro">Where should Joe send your signed copy?</p>
-          <div id="address"></div>
-          <button id="continue" type="button">Continue to payment</button>
+          <form id="address">
+            <div class="field"><label for="name">Full name</label><input id="name" name="name" autocomplete="shipping name" required></div>
+            <div class="field"><label for="country">Delivery country</label><select id="country" name="country" autocomplete="shipping country" required></select></div>
+            <div class="field"><label for="line1">House number or name and street</label><input id="line1" name="line1" autocomplete="shipping address-line1" required></div>
+            <div class="field"><label for="line2">Apartment, building or townland <small>(optional)</small></label><input id="line2" name="line2" autocomplete="shipping address-line2"></div>
+            <div class="field-pair">
+              <div class="field"><label for="city">Town or city</label><input id="city" name="city" autocomplete="shipping address-level2"></div>
+              <div class="field"><label for="state">County or region</label><input id="state" name="state" autocomplete="shipping address-level1"></div>
+            </div>
+            <div class="field"><label for="postal_code">Postal code</label><input id="postal_code" name="postal_code" autocomplete="shipping postal-code"></div>
+            <button id="continue" type="submit">Continue to payment</button>
+          </form>
         </section>
         <section id="payment" hidden>
           <h2>Payment</h2>

@@ -8,6 +8,19 @@ const countries = new Set([
   ...'AU CK FJ PF GU KI NR NC NZ NU PG PN WS SB TK TO TV VU WF'.split(' '),
 ]);
 
+// Postal field requirements follow libaddressinput's region metadata.
+const optionalCity = new Set('AE AG CO GI HK ID JP KY MO NR SG SM VG VN'.split(' '));
+const requiredRegion = new Set('AE AS AU BR CA CN CO CR ES FM HK HN ID IN IQ IT JM JP KN KR KY MH MP MX NR PF PG PW RU SO SV TW UM US VE VI VN MY'.split(' '));
+const requiredPostcode = new Set('AS AT AU AX BE BL BR CA CH CN CZ DE DK EE ES FI FK FM FR GB GF GG GL GP GR GS GU HU IM IN IO IT JE JP KR LI LT LU LV MF MH MP MQ MX MY NC NL NO NZ PF PL PM PN PR PT PW RE RO RU SE SG SH SJ SK SM TC TR TW UA US VI WF YT ZA'.split(' '));
+
+function requiredFields(country) {
+  const fields = ['line1'];
+  if (!optionalCity.has(country)) fields.push('city');
+  if (requiredRegion.has(country)) fields.push('state');
+  if (requiredPostcode.has(country)) fields.push('postal_code');
+  return fields;
+}
+
 function postage(country) {
   if (country === 'IE') return 700;
   if (country === 'GB') return 1000;
@@ -40,6 +53,7 @@ export function onRequestGet({ env }) {
   return reply({
     publishableKey: env.STRIPE_PUBLISHABLE_KEY,
     postage: Object.fromEntries(Array.from(countries, country => [country, postage(country)])),
+    required: Object.fromEntries(Array.from(countries, country => [country, requiredFields(country)])),
   });
 }
 
@@ -51,7 +65,7 @@ export async function onRequestPost({ env, request }) {
   const address = shipping?.address;
   if (![1, 2].includes(quantity) || !countries.has(address?.country) ||
       typeof shipping.name !== 'string' || !shipping.name.trim() ||
-      typeof address.line1 !== 'string' || !address.line1.trim()) {
+      requiredFields(address.country).some(field => typeof address[field] !== 'string' || !address[field].trim())) {
     return reply({ error: 'Complete the delivery address before continuing.' }, 400);
   }
   // One session fixes the book quantity, delivery address and matching postage together.
