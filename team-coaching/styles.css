@@ -487,7 +487,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 
 .reader-letter .opening,.reader-letter .supporting,.reader-letter .full-copy p{padding:0}
 
-.outdoors + .team-testimonials .reader-letter{margin-top:42px}
+.outdoors + .reader-letter{margin-top:42px}
 
 .testimonials.reader-letter{background:transparent;padding-left:0;padding-right:0}
 
@@ -499,7 +499,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 
 /* Approved full testimonial slider, 19 November 2026. */
 /* Full-width testimonial study, using the existing editorial styling. */
-.team-testimonials + .accessibility-pair{border-top:0;margin-top:0;padding-top:40px}
+.testimonial-slider + .accessibility-pair{border-top:0;margin-top:0;padding-top:40px}
 /* Approved full-width PAUSE panel beneath the introduction. */
 .pause-statement{font:400 clamp(24px,2.75vw,35px)/1.45 Old;text-align:center;text-wrap:balance;margin:36px 0 0;padding:28px 5%;background:var(--sand);color:var(--blue);border-block:3px double var(--blue)}
 .pause-statement strong{font-weight:700}
@@ -507,12 +507,3 @@ footer{border-color:var(--ink);color:var(--blue)}
 
 /* Keep the tablet title within its column beside the photograph. */
 @media(min-width:651px) and (max-width:1024px){.opening h1{font-size:6.4cqw}}
-
-/* Participant comments following the team testimonial slider. */
-.team-testimonials .testimonial-slider { border-bottom: 0; }
-.quote-columns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--rule); border-block: 3px double var(--ink); }
-.quote-columns blockquote { margin: 0; padding: clamp(18px, 1.75vw, 26px); background: var(--paper); }
-.quote-columns .mark { display: block; height: 38px; color: var(--blue); font: 700 64px/1 var(--display); }
-.quote-columns p { font: 400 1.125rem/1.55 var(--display); text-wrap: pretty; }
-@media (max-width: 960px) { .quote-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 540px) { .quote-columns { grid-template-columns: 1fr; } }

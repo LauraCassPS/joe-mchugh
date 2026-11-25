@@ -59,3 +59,15 @@
 .testimonial-slider .slider-controls{justify-content:flex-start}
 }
 
+/* Team coaching participant comments beneath the home carousel. */
+.testimonials.testimonial-slider { border-bottom: 0; }
+.quote-columns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 1px; background: var(--rule); border-block: 3px double var(--ink); }
+.quote-columns blockquote { margin: 0; padding: clamp(18px, 1.75vw, 26px); background: var(--paper); }
+.quote-columns .mark { display: block; height: 38px; color: var(--blue); font: 700 64px/1 var(--display); }
+.quote-columns p { margin: 0; font: 400 1.125rem/1.55 var(--display); text-wrap: pretty; }
+@media (max-width: 960px) { .quote-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 540px) {
+  .quote-columns { grid-template-columns: 1fr; }
+  /* Keep the quote text clear of the floating back-to-top button. */
+  .quote-columns blockquote { padding-right: 56px; }
+}
