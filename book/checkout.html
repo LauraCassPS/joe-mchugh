@@ -8,6 +8,8 @@
   <script>
     if (location.protocol === 'file:') {
       location.replace('https://book-checkout-test.socoaching.pages.dev/book/checkout');
+    } else if (location.hostname === 'lauracassps.github.io') {
+      location.replace('https://socoaching.pages.dev/book/checkout');
     }
   </script>
   <link rel="stylesheet" href="checkout.css">
