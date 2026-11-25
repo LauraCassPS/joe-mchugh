@@ -1,7 +1,7 @@
 /* Homepage photographs: reversible display crops and paper treatments. */
 .portrait{position:relative;overflow:hidden}
 .portrait img{filter:saturate(.72) contrast(.94);object-position:44% center}
-.portrait::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(#f3eee214,#f3eee214),url("assets/brand-board-paper-web.jpg");background-size:auto,640px;mix-blend-mode:multiply;opacity:.14}
+.portrait::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(#f3eee214,#f3eee214),url("assets/brand-board-paper-640.webp");background-size:auto,640px;mix-blend-mode:multiply;opacity:.14}
 /* Set both dimensions: the image's HTML height must not stretch this column. */
 .persp-photo{align-self:start;position:relative;height:clamp(380px,40vw,560px);min-width:0;overflow:hidden}
 .persp-photo img{display:block;width:100%;height:100%;min-width:0;object-fit:cover;object-position:center;filter:saturate(.55) contrast(.93) sepia(.12)}

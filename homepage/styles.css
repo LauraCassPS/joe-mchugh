@@ -81,7 +81,7 @@ h1,h2,p,figure {
   margin:auto;
   padding:22px 5.5% 38px;
   background:var(--paper);
-  background-image:linear-gradient(#f3eee2ed,#f3eee2ed),url("assets/brand-board-paper-web.jpg");
+  background-image:linear-gradient(#f3eee2ed,#f3eee2ed),url("assets/brand-board-paper-640.webp");
   background-size:auto,320px;
   box-shadow:none;
 }
@@ -199,11 +199,15 @@ a[aria-disabled=true] {
   content:"";
   position:absolute;
   inset:0;
-  background:url("assets/brand-board-paper-web.jpg") repeat;
+  background:url("assets/brand-board-paper-640.webp") repeat;
   background-size:640px;
   mix-blend-mode:multiply;
   opacity:.28;
   pointer-events:none;
+}
+.photo picture {
+  display:block;
+  height:100%;
 }
 .photo img {
   display:block;
@@ -591,7 +595,7 @@ a[aria-disabled=true] {
 .journey-masthead h2 { flex-shrink:0; font:400 clamp(28px,2.8vw,40px)/1.15 var(--display); letter-spacing:-.02em; }
 .journey-masthead::after { content:""; flex:1; border-top:4px double var(--ink); height:4px; }
 .journey-feature { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.35fr); gap:48px; align-items:stretch; }
-.journey-photo { margin:0; padding:12px 12px 22px; background-color:#e6e0d2; background-image:linear-gradient(#f3eee2a6,#f3eee2a6),url("assets/brand-board-paper-web.jpg"); background-size:auto,400px; border:1px solid #8e918380; }
+.journey-photo { margin:0; padding:12px 12px 22px; background-color:#e6e0d2; background-image:linear-gradient(#f3eee2a6,#f3eee2a6),url("assets/brand-board-paper-640.webp"); background-size:auto,400px; border:1px solid #8e918380; }
 
 
 

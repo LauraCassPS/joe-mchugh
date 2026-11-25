@@ -1,4 +1,4 @@
-"""Validate portable Home/About routes, assets, semantics and intentional draft state."""
+"""Validate portable Home/About routes, assets, semantics and public search metadata."""
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
@@ -30,6 +30,7 @@ for path,page in pages.items():
   urls=[a[k] for k in ['href','src'] if k in a]
   if t=='img':
    assert a.get('alt') and int(a['width'])>0 and int(a['height'])>0
+  if t in ('source','img'):
    urls += [v.strip().split()[0] for v in a.get('srcset','').split(',') if v.strip()]
   for url in urls:
    parsed=urlsplit(url)
@@ -41,7 +42,8 @@ for path,page in pages.items():
     assert target in pages and unquote(parsed.fragment) in pages[target].ids,url
   if a.get('class')=='nav-pending':assert t=='span' and 'href' not in a
  assert sum(a.get('class')=='nav-pending' for t,a in page.nodes)==0
- assert any(t=='meta' and a.get('name')=='robots' and 'noindex' in a.get('content','') for t,a in page.nodes)
+ assert not any(t=='meta' and a.get('name') in ('robots','googlebot') and 'noindex' in a.get('content','') for t,a in page.nodes)
+ assert sum(t=='link' and a.get('rel')=='canonical' for t,a in page.nodes)==1
  for payload in re.findall(r'<script type="application/ld\+json">(.*?)</script>',path.read_text(),re.S):json.loads(payload)
  print('PASS:',path.relative_to(ROOT),'semantics, links, assets, alt text, metadata and connected service navigation')
 for path in [p for folder in ('homepage','about','one-to-one','team-coaching') for p in (ROOT/folder).glob('*.css')]:
