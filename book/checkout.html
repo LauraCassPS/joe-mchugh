@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Book checkout | Só Coaching</title>
+  <script>
+    if (location.protocol === 'file:') {
+      location.replace('https://book-checkout-test.socoaching.pages.dev/book/checkout');
+    }
+  </script>
   <link rel="stylesheet" href="checkout.css">
   <script defer src="https://js.stripe.com/clover/stripe.js"></script>
   <script defer src="checkout.js"></script>
@@ -12,7 +17,6 @@
 <body>
   <header class="mast">
     <img src="../homepage/assets/logos/socoaching-header.webp" alt="Só Coaching, Joe McHugh" width="158" height="64">
-    <span class="test-mode">Test checkout · No money is taken</span>
   </header>
   <main>
     <a class="back" href="index.html#order">Back to the book</a>
@@ -26,15 +30,12 @@
             <p class="edition">Joe McHugh · Signed paperback</p>
           </div>
         </div>
-        <div class="copies"><label for="quantity">Quantity</label>
-          <select id="quantity"><option value="1">1 copy</option><option value="2">2 copies</option></select>
-        </div>
         <dl class="summary" aria-live="polite" aria-atomic="true">
-          <div><dt>Books</dt><dd id="subtotal">€20.00</dd></div>
+          <div><dt>Quantity</dt><dd>1</dd></div>
+          <div><dt>Book</dt><dd>€20.00</dd></div>
           <div><dt id="postage-label">Postage</dt><dd id="postage">—</dd></div>
           <div class="total"><dt>Total <small>EUR</small></dt><dd id="total">—</dd></div>
         </dl>
-        <p class="note">One postage charge covers up to two copies.</p>
       </section>
       <div class="form-area">
         <ol class="steps" aria-label="Checkout progress">
@@ -63,7 +64,7 @@
         <section id="payment" hidden>
           <h2>Payment</h2>
           <p id="shipping-summary"></p>
-          <button type="button" id="edit" class="secondary">Edit address or quantity</button>
+          <button type="button" id="edit" class="secondary">Edit delivery address</button>
           <div id="checkout"></div>
         </section>
         <button id="retry" type="button" hidden>Try again</button>

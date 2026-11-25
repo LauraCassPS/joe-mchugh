@@ -63,7 +63,8 @@ export async function onRequestPost({ env, request }) {
   const body = await request.json().catch(() => null);
   const { quantity, shipping } = body || {};
   const address = shipping?.address;
-  if (![1, 2].includes(quantity) || !countries.has(address?.country) ||
+  if (quantity !== 1) return reply({ error: 'You can order one book at a time.' }, 400);
+  if (!countries.has(address?.country) ||
       typeof shipping.name !== 'string' || !shipping.name.trim() ||
       requiredFields(address.country).some(field => typeof address[field] !== 'string' || !address[field].trim())) {
     return reply({ error: 'Complete the delivery address before continuing.' }, 400);
@@ -77,10 +78,10 @@ export async function onRequestPost({ env, request }) {
     'adaptive_pricing[enabled]': 'false',
     'payment_method_types[0]': 'card',
     'line_items[0][price]': env.STRIPE_PRICE_ID,
-    'line_items[0][quantity]': String(quantity),
+    'line_items[0][quantity]': '1',
     'custom_fields[0][key]': 'dedication',
     'custom_fields[0][label][type]': 'custom',
-    'custom_fields[0][label][custom]': 'Dedication for your signed book(s)',
+    'custom_fields[0][label][custom]': 'Dedication for your signed book',
     'custom_fields[0][type]': 'text',
     'custom_fields[0][optional]': 'true',
     'payment_intent_data[shipping][name]': shipping.name,
@@ -103,7 +104,7 @@ export async function onRequestPost({ env, request }) {
     return reply({ error: 'Stripe could not open the payment form.', parameter: session.error?.param, code: session.error?.code }, 502);
   }
   if (session.livemode || session.currency !== 'eur' ||
-      session.amount_total !== quantity * 2000 + postage(address.country)) {
+      session.amount_total !== 2000 + postage(address.country)) {
     return reply({ error: 'The Stripe price differs from the displayed total.' }, 409);
   }
   return reply({ clientSecret: session.client_secret });

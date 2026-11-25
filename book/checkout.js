@@ -1,7 +1,6 @@
 'use strict';
 
 const element = id => document.getElementById(id);
-const quantity = element('quantity');
 const statusMessage = element('checkout-status');
 const euro = cents => '€' + (cents / 100).toFixed(2);
 let checkout;
@@ -47,15 +46,12 @@ async function startCheckout() {
     }
   }
   function showTotal() {
-    const subtotal = Number(quantity.value) * 2000;
     const rate = postage[countrySelect.value];
-    element('subtotal').textContent = euro(subtotal);
     element('postage-label').textContent = 'Postage to ' + countryNames.of(countrySelect.value);
     element('postage').textContent = rate === undefined ? 'Choose a country' : euro(rate);
-    element('total').textContent = rate === undefined ? '—' : euro(subtotal + rate);
-    element('button-total').textContent = rate === undefined ? '' : euro(subtotal + rate);
+    element('total').textContent = rate === undefined ? '—' : euro(2000 + rate);
+    element('button-total').textContent = rate === undefined ? '' : euro(2000 + rate);
   }
-  quantity.addEventListener('change', showTotal);
   countrySelect.addEventListener('change', () => {
     updateAddressLabels();
     showTotal();
@@ -80,15 +76,13 @@ async function startCheckout() {
       return;
     }
     element('continue').disabled = true;
-    quantity.disabled = true;
     try {
-      const copies = Number(quantity.value);
       element('delivery').hidden = true;
       statusMessage.textContent = 'Opening secure payment…';
       const result = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ quantity: copies, shipping: value }),
+        body: JSON.stringify({ quantity: 1, shipping: value }),
       });
       if (!result.ok) throw new Error();
       const { clientSecret } = await result.json();
@@ -98,7 +92,6 @@ async function startCheckout() {
           checkout.destroy();
           element('payment').hidden = true;
           showStep(null);
-          quantity.disabled = true;
           statusMessage.textContent = 'Test payment complete. Your order is recorded in the Só Coaching Stripe sandbox.';
           statusMessage.focus();
         },
@@ -119,7 +112,6 @@ async function startCheckout() {
       statusMessage.textContent = 'The payment form could not open. Please try again.';
       statusMessage.focus();
     } finally {
-      quantity.disabled = false;
       element('continue').disabled = false;
     }
   });
@@ -129,7 +121,7 @@ async function startCheckout() {
     element('payment').hidden = true;
     element('delivery').hidden = false;
     showStep('delivery');
-    quantity.focus();
+    element('name').focus();
   });
 }
 
