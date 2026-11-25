@@ -103,7 +103,7 @@
 .next h2{font:400 clamp(38px,4.6vw,62px)/1.12 Old;letter-spacing:-.025em;padding-bottom:26px;margin-bottom:28px;border-bottom:1px solid #999}
 .next .next-columns{margin-top:0}
 @media(max-width:900px) and (min-width:651px){.purpose .purpose-copy{padding-right:26px}.purpose-copy p{font-size:16px}.purpose-composition,.purpose .purpose-photo{min-height:500px}}
-@media(max-width:650px){.purpose-composition{display:grid;grid-template-columns:14% 86%;grid-template-rows:auto auto auto;min-height:0}.purpose .purpose-photo{grid-area:1/2/3/3;min-height:360px}.purpose h2{grid-area:1/1/2/3;padding:26px 10px 35px 0;order:0;font-size:27px}.purpose h2 em{font-size:1.35em}.purpose .purpose-copy{grid-area:3/1/4/3;padding:24px 0 0;align-self:start}.purpose-copy p{font-size:16px}.next h2{font-size:38px;padding-bottom:22px;margin-bottom:24px}}
+@media(max-width:650px){.purpose-composition{display:grid;grid-template-columns:14% 86%;grid-template-rows:auto auto auto;min-height:0}.purpose .purpose-photo{grid-area:1/2/3/3;min-height:360px}.purpose h2{grid-area:1/1/2/3;padding:26px 0 35px;order:0;font-size:clamp(22px,5.9cqw,24px)}.purpose h2 em{font-size:1.35em}.purpose .purpose-copy{grid-area:3/1/4/3;padding:24px 0 0;align-self:start}.purpose-copy p{font-size:16px}.next h2{font-size:38px;padding-bottom:22px;margin-bottom:24px}}
 @media(min-width:651px){.purpose h2 em{margin-left:12%}}
 
 
@@ -173,7 +173,7 @@
 .intro-columns p:not(.hero-opportunity),.helicopter-section .c-body p,.purpose .purpose-copy p,.next-columns p,.working>div>p,.accessible>p,.testimonial-excerpt,.testimonial-voice details p,.faq .answer p{font-size:1.125rem;line-height:1.7}
 .accessible>p{max-width:75ch}
 @media(min-width:651px){.purpose h2 em{font-size:clamp(40px,6.6cqw,88px);line-height:1.08;margin-left:8%;white-space:nowrap}.purpose h2{padding-right:0}.purpose .purpose-copy{padding-top:18px}.purpose-composition,.purpose .purpose-photo{min-height:560px}}
-@media(max-width:650px){.purpose h2 em{font-size:clamp(28px,8.7cqw,50px);line-height:1.12;white-space:normal}.purpose .purpose-photo{min-height:330px}}
+@media(max-width:650px){.purpose h2 em{font-size:clamp(34px,9.5cqw,38px);line-height:1.12;white-space:normal}.purpose .purpose-photo{min-height:330px}}
 .conversation{border-top:4px double #222;margin-top:48px;padding:44px 0 12px}
 .conversation h2{font:400 clamp(40px,4.3vw,62px)/1.1 Old;letter-spacing:-.025em;margin-bottom:35px;color:#222}
 .conversation h2 br{display:none}
@@ -320,11 +320,11 @@ footer{border-color:var(--ink);color:var(--blue)}
 .site-footer .footer-nav a:hover,.footer-bottom a:hover{text-decoration:underline double}
 @media(max-width:1000px){.footer-main{grid-template-columns:1fr 1.4fr}.footer-book{grid-column:1/-1}.testimonials{padding:26px}.testimonial-voice{padding-inline:20px}}
 @media(max-width:760px){.saying{border-width:25px;border-image-width:25px;padding:24px 4px;min-height:0}.saying p[lang]{font-size:26px}.saying .translation{font-size:20px}.testimonials-header h2{font-size:38px}.testimonial-voice{padding:0}.faq-card summary{min-height:145px}}
-@media(max-width:650px){.helicopter-section .colour-photo img{object-position:40% 50%}.helicopter-section .colour-photo:after{background:rgba(0,0,0,.52)}.purpose h2 em{background:none;color:var(--paper);margin-top:75px;text-shadow:0 1px 4px rgba(0,0,0,.65)}.purpose .purpose-photo:after{background:rgba(0,0,0,.35)}.purpose h2{color:var(--ink)}.purpose .purpose-photo{min-height:360px}.faq-grid{display:grid;grid-template-columns:1fr;gap:14px}.faq-card summary{min-height:0}.testimonials{padding:24px 20px}.testimonials-header h2{font-size:36px}.testimonial-voice blockquote{font-size:30px}.footer-main{display:block;padding-bottom:24px}.site-footer .footer-nav{border-left:0;padding:0;margin:22px 0}.footer-bottom{align-items:flex-start}.footer-bottom small{max-width:19ch}.next-close{font-size:28px}.masthead nav .button{font-size:12px}}
+@media(max-width:650px){.helicopter-section .colour-photo img{object-position:40% 50%}.helicopter-section .colour-photo:after{background:rgba(0,0,0,.52)}.purpose h2 em{background:none;color:var(--paper);margin-top:32px;text-shadow:0 1px 4px rgba(0,0,0,.65)}.purpose .purpose-photo:after{background:rgba(0,0,0,.35)}.purpose h2{color:var(--ink)}.purpose .purpose-photo{min-height:360px}.faq-grid{display:grid;grid-template-columns:1fr;gap:14px}.faq-card summary{min-height:0}.testimonials{padding:24px 20px}.testimonials-header h2{font-size:36px}.testimonial-voice blockquote{font-size:30px}.footer-main{display:block;padding-bottom:24px}.site-footer .footer-nav{border-left:0;padding:0;margin:22px 0}.footer-bottom{align-items:flex-start}.footer-bottom small{max-width:19ch}.next-close{font-size:28px}.masthead nav .button{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.seven-circles li{transition:none}}
 @media(forced-colors:active){.saying{border-image:none;background:Canvas;color:CanvasText}.purpose h2 em{background:none;color:CanvasText}}
 /* Keep the mobile headline legible on both paper and photograph. */
-@media(max-width:650px){.purpose h2 em{background:linear-gradient(90deg,var(--blue) 14.44%,var(--paper) 14.44%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none}}
+@media(max-width:650px){.purpose h2 em{background:linear-gradient(90deg,var(--blue) 14%,var(--paper) 14%);background-clip:text;-webkit-background-clip:text;color:transparent;text-shadow:none}}
 
 /* Approved compact hearing composition, integrated 14 November 2026. */
 .hearing .seven-circles{max-width:700px;aspect-ratio:1.06;margin:0;justify-self:end}
@@ -399,7 +399,7 @@ footer{border-color:var(--ink);color:var(--blue)}
 @media(max-width:900px){.outdoors{gap:28px}}
 @media(max-width:650px){.hero-photo{aspect-ratio:3/2}.outdoors{display:flex;flex-direction:column;align-items:stretch}.outdoors-photo{width:100%}.outdoors h2{margin-bottom:24px}}
 /* Keep the existing question circles within narrow mobile screens. */
-@media(max-width:450px){.hearing .seven-circles ul{grid-template-columns:minmax(0,1fr);justify-items:center}.hearing .seven-circles li:nth-child(n){width:210px;height:210px;padding:28px;font-size:21px}}
+@media(max-width:450px){.hearing .seven-circles .circle-centre{width:210px;height:210px}.hearing .seven-circles ul{grid-template-columns:minmax(0,1fr);justify-items:center}.hearing .seven-circles li:nth-child(n){width:210px;height:210px;padding:28px;font-size:21px}}
 
 /* Match the compact working-section mockup and soften the office print. */
 .working{align-items:center}
@@ -507,3 +507,8 @@ footer{border-color:var(--ink);color:var(--blue)}
 
 /* Keep the tablet title within its column beside the photograph. */
 @media(min-width:651px) and (max-width:1024px){.opening h1{font-size:6.4cqw}}
+
+@media (max-width: 650px) {
+  .purpose h2 br { display: none; }
+  .purpose h2 em { text-wrap: balance; }
+}

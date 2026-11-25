@@ -16,3 +16,19 @@
 
 /* Consistent current-page indication across the shared navigation. */
 .masthead nav a[aria-current='page']{text-decoration:underline double;text-underline-offset:5px}
+
+@media (max-width: 700px) {
+  .masthead.masthead-newsletter nav > a { justify-content: center; }
+  .masthead.masthead-newsletter nav > a:not(.book):not(.newsletter-nav) { line-height: 1.65; }
+  .masthead.masthead-newsletter nav .book,
+  .masthead.masthead-newsletter nav .newsletter-nav { align-self: stretch; }
+  .masthead nav .booking-word { display: block; }
+  .masthead.masthead-newsletter nav a:has(.current-coaching-label) { text-decoration: none; }
+  .current-coaching-label { position: relative; }
+  .current-coaching-label::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -2px;
+    border-bottom: 3px double currentColor;
+  }
+}

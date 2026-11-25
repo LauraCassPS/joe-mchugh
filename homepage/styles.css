@@ -970,3 +970,7 @@ a[aria-disabled=true] {
 }
 
 @media (max-width: 760px) { .keynote-note-break { display: none; } }
+
+@media (max-width: 700px) {
+  .hero .intro .hero-second-line { display: block; }
+}

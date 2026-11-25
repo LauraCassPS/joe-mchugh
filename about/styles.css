@@ -524,3 +524,7 @@ main { padding-top: 65px; }
 
 /* Keep the testimonial excerpt separate from the About introduction grid. */
 .reader-letter .opening{display:block}
+
+@media (max-width: 700px) {
+  .philosophy-section + .testimonials { margin-top: 16px; border-top-color: var(--rule); }
+}
