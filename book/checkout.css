@@ -1,0 +1,131 @@
+@font-face{font-family:Old Standard;src:url(../homepage/assets/fonts/old-standard-tt.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Source Sans;src:url(../homepage/assets/fonts/source-sans-3.woff2) format("woff2");font-weight:200 900;font-display:swap}
+:root{--paper:#f5f1e7;--ink:#233e43;--rule:#b5b5a8;--muted:#526260;--serif:"Old Standard",Georgia,serif;--sans:"Source Sans",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.05rem/1.45 var(--sans)}
+.mast,main{width:min(100% - 3rem,68rem);margin-inline:auto}
+.mast{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:2px solid var(--ink)}
+.mast img{width:9.5rem;height:auto}.mast span{color:var(--muted);font-size:.95rem}
+a,.secondary{color:var(--ink);text-underline-offset:.22em}
+.back{display:inline-block;margin:1rem 0 1.75rem;padding:.4rem 0}
+.spread{display:grid;grid-template-columns:minmax(0, .9fr) minmax(0,1.1fr);gap:clamp(2rem,6vw,5rem);align-items:start;padding-bottom:4rem}
+.order{border-top:1px solid var(--rule);padding-top:1.6rem}
+.product{display:flex;gap:1.35rem;align-items:center}
+.cover{width:clamp(5rem,9vw,8rem);height:auto;box-shadow:2px 5px 9px #20251c24}
+h1,h2,.subtitle{font-family:var(--serif);font-weight:400;margin:0;line-height:1.12}
+h1{font-size:clamp(2.1rem,3.3vw,3.5rem);letter-spacing:-.035em}
+h2{font-size:clamp(2rem,3vw,2.8rem)}
+.subtitle{font-size:1.2rem;margin:.35rem 0 .8rem}
+.edition,.intro{color:var(--muted);margin:0}
+.summary div{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+select{font:inherit;color:inherit;background:#fffdf7;border:1px solid #89928c;border-radius:3px;min-height:44px;padding:.4rem .7rem}
+.summary{margin:1.5rem 0 0;font-variant-numeric:tabular-nums}
+.summary div{padding:.25rem 0}.summary dd{margin:0;font-weight:600}
+.summary .total{border-top:1px solid var(--rule);margin-top:.65rem;padding-top:.7rem;font-size:1.65rem}
+.total small{font: .85rem var(--sans);color:var(--muted)}
+.form-area{background:#fffdf8;border-top:2px solid var(--ink);padding:clamp(1.2rem,3vw,2.5rem)}
+.intro{margin:.35rem 0 1.3rem}
+#checkout-status:empty{display:none}
+button{font:600 1.05rem var(--sans);background:#284d53;color:#fff;border:0;border-radius:3px;min-height:48px;padding:.7rem 1.4rem;cursor:pointer}
+#continue{width:100%;margin-top:1.3rem}
+button:hover{background:#193a40}button:disabled{opacity:.6;cursor:wait}
+.secondary,.secondary:hover{background:transparent;padding:.4rem 0;text-decoration:underline}
+:focus-visible{outline:3px solid #266a74;outline-offset:3px}
+.spread:has(#payment:not([hidden])){grid-template-columns:minmax(0,1fr)}
+.spread:has(#payment:not([hidden])) .order{display:none}
+@media(max-width:700px){
+  .mast,main{width:min(100% - 2rem,35rem)}.mast{padding:.65rem 0}.mast img{width:7.5rem}
+  .back{margin:.55rem 0 1rem}.spread{display:flex;flex-direction:column;gap:1.25rem}
+  .product{gap:1rem}.cover{width:4.8rem}.order,.form-area{width:100%}.order{padding-top:1rem}
+  .subtitle{margin:.25rem 0}.summary{margin-top:.5rem}
+  .form-area{padding:1.1rem .8rem 1.4rem}
+}
+
+.field{display:flex;flex-direction:column;gap:.25rem;margin:0 0 .8rem}
+.field label{font-size:1rem;font-weight:600}
+.field small{font-size:.9rem;color:var(--muted);font-weight:400}
+.field input,.field select{font:inherit;width:100%;min-width:0;min-height:44px;background:#fff;border:1px solid #828e87;border-radius:3px;color:var(--ink);padding:.5rem .65rem}
+.field-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+#continue{margin-top:.45rem}
+@media(max-width:440px){.field-pair{display:block}}
+
+/* Keep the seller, the order and its delivery terms together on wide screens. */
+.spread {
+  grid-template-areas: "order form" "dispatch form";
+  grid-template-rows: auto 1fr;
+  row-gap: 2rem;
+  padding-bottom: 3rem;
+}
+.order { grid-area: order; }
+.form-area { grid-area: form; min-width: 0; }
+.steps {
+  display: flex;
+  gap: .9rem;
+  align-items: center;
+  margin: 0 0 1.45rem;
+  padding: 0 0 .8rem;
+  list-style: none;
+  border-bottom: 1px solid #d4d5c9;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.steps li { display: flex; align-items: center; gap: .9rem; }
+.steps li + li::before { content: ""; width: 1.6rem; height: 1px; background: #a4afa8; }
+.steps [aria-current] { color: var(--ink); font-weight: 700; }
+#continue {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .9rem 1.1rem;
+  min-height: 52px;
+}
+#button-total { font-variant-numeric: tabular-nums; }
+.payment-note { margin: .65rem 0 0; font-size: .96rem; line-height: 1.4; color: var(--muted); }
+.dispatch {
+  grid-area: dispatch;
+  align-self: start;
+  display: grid;
+  grid-template-columns: minmax(5rem, .72fr) minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.6rem);
+  align-items: center;
+  padding-top: 1.45rem;
+  border-top: 1px solid var(--rule);
+}
+.dispatch img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1.08;
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+.dispatch h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.dispatch p { margin: .55rem 0; color: var(--muted); }
+.dispatch a, .checkout-footer a { display: inline-block; padding-block: .3rem; }
+.checkout-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .6rem 1.5rem;
+  width: min(100% - 3rem, 68rem);
+  margin: 0 auto;
+  padding: 1rem 0 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-size: 1rem;
+}
+.checkout-footer p { margin: 0; }
+.checkout-footer small { color: var(--muted); font-size: .9rem; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+.spread:has(#payment:not([hidden])) { grid-template-areas: "form"; grid-template-rows: auto; }
+.spread:has(#payment:not([hidden])) .dispatch { display: none; }
+@media (max-width: 700px) {
+  .spread { gap: 1.3rem; padding-bottom: 1.5rem; }
+  .dispatch { width: 100%; grid-template-columns: minmax(4.4rem, 28%) 1fr; }
+  .checkout-footer { width: min(100% - 2rem, 35rem); }
+  .steps { margin-bottom: 1rem; }
+}
