@@ -6,8 +6,8 @@ const root = path.resolve(__dirname, '..');
 for (const [folder, files] of Object.entries({
   homepage: ['styles.css', 'team-coaching.css', 'testimonials.css', 'photos.css'],
   about: ['styles.css'],
-  'one-to-one': ['styles.css'],
-  'team-coaching': ['styles.css'],
+  'one-to-one': ['styles.css', '../shared/testimonial-slider.css'],
+  'team-coaching': ['styles.css', '../shared/testimonial-slider.css'],
   book: ['styles.css', 'reader.css'],
 })) {
   const css = (folder === 'book' ? files : [...files, '../shared/contact.css', '../shared/footer.css', '../shared/header.css', '../shared/newsletter.css']).concat('../shared/statements.css').map(file => fs.readFileSync(path.join(root, folder, file), 'utf8')).join('\n');
