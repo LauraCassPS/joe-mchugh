@@ -18,7 +18,7 @@ async function startCheckout() {
   const endpoint = '/api/book/checkout';
   const response = await fetch(endpoint);
   if (!response.ok) throw new Error();
-  const { publishableKey, postage, required } = await response.json();
+  const { mode, publishableKey, postage, required } = await response.json();
   const stripe = window.Stripe(publishableKey);
   const form = element('address');
   const countrySelect = element('country');
@@ -92,7 +92,9 @@ async function startCheckout() {
           checkout.destroy();
           element('payment').hidden = true;
           showStep(null);
-          statusMessage.textContent = 'Test payment complete. Your order is recorded in the Só Coaching Stripe sandbox.';
+          statusMessage.textContent = mode === 'test'
+            ? 'Test payment complete. Your order is recorded in the Só Coaching Stripe sandbox.'
+            : 'Thank you for ordering a signed copy. Your payment is complete.';
           statusMessage.focus();
         },
       });
@@ -127,6 +129,6 @@ async function startCheckout() {
 
 element('retry').addEventListener('click', () => window.location.reload());
 startCheckout().catch(() => {
-  statusMessage.textContent = 'Test checkout could not open. Please try again.';
+  statusMessage.textContent = 'Book checkout could not open. Please try again.';
   element('retry').hidden = false;
 });

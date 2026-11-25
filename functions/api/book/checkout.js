@@ -43,14 +43,22 @@ function reply(body, status = 200) {
   return Response.json(body, { status, headers: { 'Cache-Control': 'no-store' } });
 }
 
-function configured(env) {
-  return env.STRIPE_SECRET_KEY?.startsWith('sk_test_') &&
-    env.STRIPE_PUBLISHABLE_KEY?.startsWith('pk_test_') && env.STRIPE_PRICE_ID;
+function paymentMode(env, request) {
+  const hostname = new URL(request.url).hostname;
+  const liveHosts = ['socoaching.ie', 'www.socoaching.ie', 'socoaching.pages.dev'];
+  const mode = liveHosts.includes(hostname) ? 'live' : 'test';
+  const secret = env.STRIPE_SECRET_KEY || '';
+  if (!(secret.startsWith('sk_' + mode + '_') || secret.startsWith('rk_' + mode + '_')) ||
+      !env.STRIPE_PUBLISHABLE_KEY?.startsWith('pk_' + mode + '_') ||
+      !env.STRIPE_PRICE_ID?.startsWith('price_')) return null;
+  return mode;
 }
 
-export function onRequestGet({ env }) {
-  if (!configured(env)) return reply({ error: 'Test checkout is unavailable.' }, 503);
+export function onRequestGet({ env, request }) {
+  const mode = paymentMode(env, request);
+  if (!mode) return reply({ error: 'Book checkout is unavailable.' }, 503);
   return reply({
+    mode,
     publishableKey: env.STRIPE_PUBLISHABLE_KEY,
     postage: Object.fromEntries(Array.from(countries, country => [country, postage(country)])),
     required: Object.fromEntries(Array.from(countries, country => [country, requiredFields(country)])),
@@ -59,7 +67,8 @@ export function onRequestGet({ env }) {
 
 export async function onRequestPost({ env, request }) {
   if (request.headers.get('Origin') !== new URL(request.url).origin) return reply({}, 403);
-  if (!configured(env)) return reply({ error: 'Test checkout is unavailable.' }, 503);
+  const mode = paymentMode(env, request);
+  if (!mode) return reply({ error: 'Book checkout is unavailable.' }, 503);
   const body = await request.json().catch(() => null);
   const { quantity, shipping } = body || {};
   const address = shipping?.address;
@@ -72,6 +81,7 @@ export async function onRequestPost({ env, request }) {
   // One session fixes the book quantity, delivery address and matching postage together.
   const fields = {
     mode: 'payment',
+    customer_creation: 'always',
     ui_mode: 'embedded',
     redirect_on_completion: 'never',
     currency: 'eur',
@@ -103,7 +113,7 @@ export async function onRequestPost({ env, request }) {
     console.error('Book checkout', result.status, session.error?.code, session.error?.param, result.headers.get('request-id'));
     return reply({ error: 'Stripe could not open the payment form.', parameter: session.error?.param, code: session.error?.code }, 502);
   }
-  if (session.livemode || session.currency !== 'eur' ||
+  if (session.livemode !== (mode === 'live') || session.currency !== 'eur' ||
       session.amount_total !== 2000 + postage(address.country)) {
     return reply({ error: 'The Stripe price differs from the displayed total.' }, 409);
   }
