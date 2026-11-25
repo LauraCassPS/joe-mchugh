@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Footer Credit";
+  src: url("../homepage/assets/fonts/old-standard-tt-latin.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Footer Credit";
+  src: url("../homepage/assets/fonts/old-standard-tt-italic-latin.woff2") format("woff2");
+  font-style: italic;
+  font-display: swap;
+}
+
+footer .designer-credit {
+  margin: 0;
+  text-align: center;
+  color: var(--ink);
+  font: 400 16px/1.4 "Footer Credit", Georgia, serif;
+}
+
+footer .designer-credit a {
+  color: var(--blue, #345961);
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.global-footer .global-footer-note {
+  margin: 0;
+}
+
+@media (min-width: 701px) {
+  .global-footer .footer-layout { row-gap: 24px; }
+  .global-footer .global-footer-note,
+  .global-footer .designer-credit {
+    grid-row: 3;
+    align-self: baseline;
+  }
+  .global-footer .global-footer-note { grid-column: 1; }
+  .global-footer .designer-credit { grid-column: -2 / -1; }
+}
+
+@media (min-width: 1201px) {
+  .global-footer .global-footer-note,
+  .global-footer .designer-credit { grid-row: 2; }
+  .global-footer .global-footer-note {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .global-footer .footer-layout { padding-bottom: 14px; }
+  .global-footer .global-footer-note { margin-top: -8px; }
+}
